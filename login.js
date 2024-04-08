@@ -32,8 +32,8 @@ loginForm.addEventListener('submit', (e) =>
 
 signUpForm.addEventListener('submit', (e) => 
 {
-    var regUsername = document.getElementById('username').value;
-    var regPassword = document.getElementById('password').value;
+    var regUsername = document.getElementById('newUsername').value;
+    var regPassword = document.getElementById('newPassword').value;
 
     var newUser = {
         username: regUsername,
