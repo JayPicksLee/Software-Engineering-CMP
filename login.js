@@ -1,6 +1,5 @@
 const loginForm = document.getElementById('loginForm');
 
-
 var accounts = 
 [
     {
@@ -25,7 +24,17 @@ loginForm.addEventListener('submit', (e) =>
     {
         if (username == accounts[i].username && password == accounts[i].password)
         {
-            return alert("The account details match!");
+            if(accounts[i].accountType == "user")
+            {
+                alert("Login succesful, this is a USER account");
+                return
+            }
+            
+            if (accounts[i].accountType == "admin")
+            {
+                alert("Login succesful, this is an ADMIN account");
+                return
+            }
         }
     }
     return alert("The account details do not match")
@@ -38,7 +47,8 @@ signUpForm.addEventListener('submit', (e) =>
 
     var newUser = {
         username: regUsername,
-        password: regPassword
+        password: regPassword,
+        accountType: "user"
     }
 
     accounts.push(regUsername, regPassword);
