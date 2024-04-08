@@ -1,6 +1,5 @@
 const loginForm = document.getElementById('loginForm');
 
-
 var accounts = 
 [
     {
