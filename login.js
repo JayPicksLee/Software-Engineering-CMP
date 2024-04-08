@@ -42,6 +42,7 @@ loginForm.addEventListener('submit', (e) =>
 
 signUpForm.addEventListener('submit', (e) => 
 {
+    e.preventDefault();
     var regUsername = document.getElementById('newUsername').value;
     var regPassword = document.getElementById('newPassword').value;
 
@@ -51,21 +52,6 @@ signUpForm.addEventListener('submit', (e) =>
         accountType: "user"
     }
 
-    accounts.push(regUsername, regPassword);
+    accounts.push(newUser);
     console.log(accounts);
-
-
-    // e.preventDefault();
-    // const fd = new FormData(signUpForm);
-    // console.log(fd);
-    
-    // const obj = Object.fromEntries(fd);
-
-
-    // const json = JSON.stringify(obj);
-    
-    // const get = localStorage.getItem('form');
-    // const parse = JSON.parse(json);
-
-    // console.log(parse);
 })
