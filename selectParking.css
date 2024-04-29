@@ -1,0 +1,23 @@
+.box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin: 50px auto;
+}
+
+.box-item {
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+h1 {
+    font: 2em bold sans-serif;
+    text-align: center;
+}
+
+h2 {
+    font: arial;
+}
