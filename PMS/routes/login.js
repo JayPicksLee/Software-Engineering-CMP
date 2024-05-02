@@ -14,7 +14,7 @@ router.post('/', (req, res, next)=>{
   let loginResult = usermodel.checkLoginDetails(username, password);
   if(loginResult)
   {
-    res.render("login", { title:'You have just been logged in ', name: username});
+    res.render("main", { title:username});
   }
   else
   {
