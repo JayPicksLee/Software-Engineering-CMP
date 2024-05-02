@@ -1,9 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  p 
-  a(href='/register') Register
-  p
-  a(href='/login') Login
+  section(id = "mainpage")
+   img(src="/images/UEALogo.png", alt="logoImg" id = "logo")
+   div(id = "content")
+     h1= title
+     a(href='/register') Register
+     br
+     a(href='/login') Login
