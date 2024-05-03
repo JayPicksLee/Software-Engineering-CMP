@@ -6,7 +6,7 @@ a {
   color: #00B7FF;
 }
 
-#mainpage{
+#indexpage{
   padding: 50px;
   background-image: url('/images/carpark.jpg');
   background-size: cover;
@@ -30,7 +30,7 @@ a {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: black;
+  background-color: rgb(43, 41, 41);
   
 
 }

@@ -1,10 +1,12 @@
 extends layout
 
 block content
-  section(id = "mainpage")
+  section(id = "indexpage")
    img(src="/images/UEALogo.png", alt="logoImg" id = "logo")
+  
    div(id = "content")
      form(action='#', method= 'POST')
+        h1=title 
         label(for='username')
         input#username(type='text' name='username' placeholder='Username' required='')
         br
