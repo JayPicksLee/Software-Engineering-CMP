@@ -7,7 +7,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'PMS' });
 });
 
-router.post('/', (req, res, next)=>{
+router.post('/', (req, res, next)=>
+  {
   const username= req.body.username;
   const password = req.body.password;
   
@@ -18,9 +19,8 @@ router.post('/', (req, res, next)=>{
   }
   else
   {
-    res.render('login', {error: true});
+    res.render('index', {error: true});
   }
-
 });
 
 module.exports = router;
