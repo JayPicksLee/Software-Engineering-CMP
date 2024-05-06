@@ -15,3 +15,22 @@ exports.checkLoginDetails = (username, password)=>{
     }   
     return check;
 }
+
+exports.signUpUser = (username, password) => {
+    try {
+        // Check if username already exists
+        const userExists = userInfo.some(user => user.username === username);
+        if (userExists) {
+            throw new Error('Username already exists');
+        }
+
+        // Add new user to user data
+        userInfo.push({ username, password });
+
+        // Write updated user data back to JSON file
+        fs.writeFileSync('./userdb.json', JSON.stringify(userInfo));
+
+    } catch (error) {
+        throw new Error('Error saving user data: ' + error.message);
+    }
+}
