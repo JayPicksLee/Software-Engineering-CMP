@@ -10,35 +10,6 @@ a {
   color: #00B7FF;
 }
 
-#indexpage{
-  padding: 50px;
-  background-image: url('/images/carpark.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  
-}
-
-#logo{
-  max-width: 100%;
-  height: auto;
-  position: absolute;
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  
-}
-
-#content{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: rgb(43, 41, 41);
-  
-
-}
-
 footer {
   background-color: #222;
   color: #fff;
