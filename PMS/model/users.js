@@ -29,6 +29,7 @@ exports.signUpUser = (username, password) => {
 
         // Write updated user data back to JSON file
         fs.writeFileSync('./userdb.json', JSON.stringify(userInfo));
+
     } catch (error) {
         throw new Error('Error saving user data: ' + error.message);
     }
