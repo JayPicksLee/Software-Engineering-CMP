@@ -27,7 +27,6 @@ a {
 } 
 
 iframe{
-  display: none;
   width: 50%;
   height: 100vh;
 }
@@ -57,4 +56,18 @@ iframe{
   font-weight: bold;
   margin-right: 25px;
   color: white;
+}
+
+.main_content{
+  display: flex;
+  
+}
+
+.sideRequest{
+  margin-left: 25px;
+  width: 58%;
+}
+
+.sideMap{
+  width: 100%;
 }
