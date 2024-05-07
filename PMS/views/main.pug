@@ -1,11 +1,23 @@
 extends layout
 
 block content
-  h1 Main page
-  p Welcome #{title}
-  p
-  a(href='help') Help Page
-  br
-  a(href='bookings') Bookings page
-  br
-  a(href='account') Account page
+  nav(class="nav")
+    div(class="nav_container")
+      div(class= "nav_logo")
+        img(src="/images/UEALogo.png", alt="", id="logo")
+      ul(class="nav_list")
+        li 
+         a(class = "nav_option", href='#') Home
+        li 
+         a(class = "nav_option", href='bookings') Bookings
+        li 
+         a(class = "nav_option", href='bookings')
+        li  
+         a(class = "nav_option", href='bookings')
+  main 
+    h1 Main page 
+    p Welcome #{title}
+    p  
+  div(class = "sideMap")
+    iframe(src="https://www.google.com/maps/d/u/0/embed?mid=19Y2uYDjzPjg_DmreQQnEMcAjHySUdUI&ehbc=2E312F&noprof=1")
+    

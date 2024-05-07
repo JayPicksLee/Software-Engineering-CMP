@@ -10,7 +10,7 @@ a {
   color: #00B7FF;
 }
 
-footer {
+ footer {
   background-color: #222;
   color: #fff;
   text-align: center;
@@ -18,10 +18,43 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-}
+} 
 
-header {
+ header {
   background-color: #222;
   padding: 20px;
   text-align: center;
+} 
+
+iframe{
+  display: none;
+  width: 50%;
+  height: 100vh;
+}
+
+.nav{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.nav_container{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+#logo{
+  width: 40%;
+}
+
+.nav_list li{
+  list-style: none;
+  display: inline-block;
+}
+
+.nav_option{
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 25px;
+  color: white;
 }
