@@ -6,5 +6,11 @@ exports.getRequests=()=>{
     }
 
 exports.createRequest = (department, destination, arriveDate, departDate) => {
-    
+    try {
+        requestInfo.push({ department, destination, arriveDate, departDate });
+
+        fs.writeFileSync('./requestdb.json', JSON.stringify(requestInfo));
+    } catch (error) {
+        throw new Error('Error saving request data: ' + error.message);
+    }
 }

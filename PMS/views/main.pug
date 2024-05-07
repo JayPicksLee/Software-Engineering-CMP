@@ -18,9 +18,9 @@ block content
     section(class = "main_content")
      div(class ="sideRequest")
       h3 Send parking request?
-      form(action='/', method= 'POST')
+      form(action='/submit', method= 'POST')
         label(for="departmentsSelect") Select department
-        select(name="Departments", id="departmentsSelect")
+        select(name="departmentsSelect", id="departmentsSelect")
           optgroup() 
             option(value="SCISch") School of Science (SCI - BIO, ENG, COMP, MATH, ENV, CHEM, PHA)
             option(value="PSYSch") School of Psychology
@@ -47,7 +47,7 @@ block content
             option(value="AMA") Art, Media and American Studies
 
         label(for="buildingsSelect") Select building
-        select(name="Buildings", id="buildingsSelect") 
+        select(name="buildingsSelect", id="buildingsSelect") 
          optgroup()
           option(value="ZICER") ZICER Building
           option(value="TPSC") Thomas Paine Study Centre (TPSC)
@@ -71,9 +71,10 @@ block content
           option(value="AHB") Arts and Humanities Building (AHB)
 
         label(for="arrivalSelect") Select arrival date and time
-        input(type="datetime-local", value="Arrival date" id="arrivalSelect") 
+        input(type="datetime-local", value="Arrival date", id="arrivalSelect", name="arrivalSelect") 
+
         label(for="departureSelect") Select departure date and time
-        input(type="datetime-local", value="Departure date" id = "departureSelect") 
+        input(type="datetime-local", value="Departure date", id = "departureSelect", name="departureSelect") 
         br
         input(type="submit", name="Submit Request")
      div(class = "sideMap")

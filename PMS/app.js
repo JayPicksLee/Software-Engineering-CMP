@@ -25,6 +25,7 @@ app.use('/', index);
 app.use('/main', main);
 app.use('/map', map);
 app.use('/register', register);
+app.use('/submit', main);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
