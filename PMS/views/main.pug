@@ -18,9 +18,9 @@ block content
     section(class = "main_content")
      div(class ="sideRequest")
       h3 Send parking request?
-      form(action='#', method= 'POST')
-        p Departments
-        select(name="", id)
+      form(action='/', method= 'POST')
+        label(for="departmentsSelect") Select department
+        select(name="Departments", id="departmentsSelect")
           optgroup() 
             option(value="SCISch") School of Science (SCI - BIO, ENG, COMP, MATH, ENV, CHEM, PHA)
             option(value="PSYSch") School of Psychology
@@ -46,8 +46,8 @@ block content
             option(value="BritCentLit") British Centre for Literary Translation
             option(value="AMA") Art, Media and American Studies
 
-        p Building Destination
-        select(name="", id) 
+        label(for="buildingsSelect") Select building
+        select(name="Buildings", id="buildingsSelect") 
          optgroup()
           option(value="ZICER") ZICER Building
           option(value="TPSC") Thomas Paine Study Centre (TPSC)
@@ -69,13 +69,12 @@ block content
           option(value="BIOENE") Biomass Energy Centre (BIOENE)
           option(value="BMRC") Bio-Medical Research Centre (BMRC)
           option(value="AHB") Arts and Humanities Building (AHB)
-      
-        p Arrival date and time
-        input(type="datetime-local", value="Arrival date") 
-        p Departure date and time
-        input(type="datetime-local", value="Departure date") 
+
+        label(for="arrivalSelect") Select arrival date and time
+        input(type="datetime-local", value="Arrival date" id="arrivalSelect") 
+        label(for="departureSelect") Select departure date and time
+        input(type="datetime-local", value="Departure date" id = "departureSelect") 
         br
-        input(type="submit", name="Subimt Request")
+        input(type="submit", name="Submit Request")
      div(class = "sideMap")
       iframe(src="https://www.google.com/maps/d/u/0/embed?mid=19Y2uYDjzPjg_DmreQQnEMcAjHySUdUI&ehbc=2E312F&noprof=1")
-    

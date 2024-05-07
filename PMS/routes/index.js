@@ -5,6 +5,7 @@ const usermodel = require('../model/users.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'PMS' });
+  
 });
 
 router.post('/', (req, res, next)=>
