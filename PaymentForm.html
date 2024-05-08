@@ -1,52 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible"
-		content="IE=edge" />
-	<meta name="viewport"
-		content="width=device-width,initial-scale=1.0" />
-	<link rel="stylesheet"
-		href="PaymentForm.css" class="css" />
+	<meta charset = "UTF-8" />
+	<link rel="stylesheet" type ="text/css" href ="PaymentForm.css">
+	<script src="PaymentForm.js" defer></script>
+	<title>Payment Form</title>
 </head>
 
 <body>
-	<div class="container">
+	<form id = "paymentForm" class="paymentForm">
 		<div class="title">
 			<h1>Payment Form</h1>
 		</div>
 
-		<div class="card-details">
+		<div class="cardDetails">
 			<p>Card details</p>
 
-			<div class="card-number">
+			<div id="cardNumber" class="cardNumber">
 				<label> Card Number </label>
-				<input type="text" class="card-number-field"
-					placeholder="###-###-###" />
+				<input type="text" id="cardNumber"
+					placeholder="XXXX-XXXX-XXXX-XXXX" required/>
 			</div>
 			<br />
 			<div class="date-number">
 				<label> Expiry Date </label>
-				<input type="text" class="date-number-field"
-					placeholder="DD-MM-YY" />
+				<input type="text" id="expDate"
+					placeholder="DD-MM-YY" required/>
 			</div>
 
 			<div class="cvv-number">
 				<label> CVV number </label>
-				<input type="text" class="cvv-number-field"
-					placeholder="xxx" />
+				<input type="text" id="CVV"
+					placeholder="xxx" required/>
 			</div>
 			<div class="nameholder-number">
 				<label> Card Holder name </label>
-				<input type="text" class="card-name-field"
-					placeholder="Enter your Name" />
+				<input type="text" id="cardholderName"
+					placeholder="Enter your Name" required/>
 			</div>
-			<button type="submit" class="submit-now-btn">
+			<button type="submit" class="submit">
 				Submit
 			</button>
+
 		</div>
-	</div>
+	</form>
 </body>
 
 </html>
