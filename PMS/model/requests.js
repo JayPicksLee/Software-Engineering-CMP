@@ -7,7 +7,8 @@ exports.getRequests=()=>{
 
 exports.createRequest = (userID,department, destination, arriveDate, departDate) => {
     try {
-        requestInfo.push({ userID, department, destination, arriveDate, departDate });
+        var approvedStatus = false;
+        requestInfo.push({ userID, department, destination, arriveDate, departDate, approvedStatus });
 
         fs.writeFileSync('./requestdb.json', JSON.stringify(requestInfo));
     } catch (error) {

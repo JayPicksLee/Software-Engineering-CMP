@@ -10,6 +10,8 @@ var index= require('./routes/index');
 var main = require('./routes/main');
 var map = require('./routes/map');
 var register = require('./routes/register');
+var mainAdmin = require('./routes/mainAdmin');
+var bookings = require('./routes/bookings');
 
 var app = express();
 
@@ -39,6 +41,8 @@ app.use('/main', main);
 app.use('/map', map);
 app.use('/register', register);
 app.use('/submit', main);
+app.use('/mainAdmin', mainAdmin)
+app.use('/bookings', bookings)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
