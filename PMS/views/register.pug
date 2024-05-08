@@ -21,3 +21,5 @@ block content
         br
         input(type='submit' value='Sign Up')
         a(href='/') Login Page
+        if errorMessage
+          p.error= errorMessage

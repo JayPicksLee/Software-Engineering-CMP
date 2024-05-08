@@ -24,8 +24,8 @@ router.post('/', (req, res, next) => {
       res.redirect('/login');
       
   } catch (error) { 
-      // Handle error if username already exists
-      res.render("register", { title: 'SignUp page', error: true, message: error.message });
+      // Handle errors, these will be printed to the user
+      res.render('register', { errorMessage: error.message });
   }
 });
 
