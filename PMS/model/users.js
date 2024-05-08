@@ -1,5 +1,4 @@
 const fs = require('fs');
-const {check, validationResult} = require("express-validator");
 const userInfo = JSON.parse(fs.readFileSync('./userdb.json', 'utf-8'));
 
 exports.getUsers=()=>{
@@ -46,9 +45,9 @@ exports.signUpUser = (username, password, email, phoneNumber) =>
     {
         const randomId = generateRandomId(8);
         const accountLevel = 0;
-        //var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^\d{11}$/;
 
-        const errors = validationResult(req);
 
         console.log("Generated user id: ", randomId);
 
@@ -61,6 +60,13 @@ exports.signUpUser = (username, password, email, phoneNumber) =>
         if(randomIdExists)
         {
             throw new Error('ID already exists');
+        }
+        if (!emailRegex.test(email)) {
+            throw new Error('Invalid email format, please ensure it agrees with this example, example@example.com or .co.uk etc');
+        }
+
+        if (!phoneRegex.test(phoneNumber)) {
+            throw new Error('Invalid phone number format, ensure it is 11 digits long, it may need to start with a 0');
         }
     
 
