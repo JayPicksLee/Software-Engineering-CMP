@@ -1,11 +1,81 @@
 extends layout
 
 block content
-  h1 Main page
-  p Welcome #{title}
-  p
-  a(href='help') Help Page
-  br
-  a(href='bookings') Bookings page
-  br
-  a(href='account') Account page
+  nav(class="nav")
+    div(class="nav_container")
+      div(class= "nav_logo")
+        img(src="/images/UEALogo.png", alt="", id="logo")
+      ul(class="nav_list")
+        li 
+         a(class = "nav_option", href='#') Home
+        li 
+         a(class = "nav_option", href='bookings') Bookings
+        li 
+         a(class = "nav_option", href='bookings')
+        li  
+         a(class = "nav_option", href='bookings')
+  main
+    section(class = "main_content")
+     div(class ="sideRequest")
+      h3 Send parking request?
+      form(action='/submit', method= 'POST')
+        label(for="departmentsSelect") Select department
+        select(name="departmentsSelect", id="departmentsSelect")
+          optgroup() 
+            option(value="SCISch") School of Science (SCI - BIO, ENG, COMP, MATH, ENV, CHEM, PHA)
+            option(value="PSYSch") School of Psychology
+            option(value="HISSch") School of History
+            option(value="SWKSch") School of Social Work
+            option(value="DEVSch") School of Global Development
+            option(value="EDUSch") School of Education and Lifelong Learning
+            option(value="ECOSch") School of Economics
+            option(value="ProEast") Productivity East 
+            option(value="PPL") Politics, Philosophy, Language and Communication Studies
+            option(value="ResearchPark") Norwich Research Park
+            option(value="MED") Norwich Medical School
+            option(value="NBS") Norwich Business School
+            option(value="LDC") Literature, Drama and Creative Writing
+            option(value="LAW") Law school
+            option(value="Innes") John Innes Centre
+            option(value="JamesPlatt") James Platt Language Centre
+            option(value="INTO") INTO University of East Anglia 
+            option(value="IIH") Interdisciplinary Institute for the Humanities
+            option(value="GradSch") Graduate School
+            option(value="CRU") Climatic Research Unit
+            option(value="CentreEA") Centre for East Anglian Studies
+            option(value="BritCentLit") British Centre for Literary Translation
+            option(value="AMA") Art, Media and American Studies
+
+        label(for="buildingsSelect") Select building
+        select(name="buildingsSelect", id="buildingsSelect") 
+         optgroup()
+          option(value="ZICER") ZICER Building
+          option(value="TPSC") Thomas Paine Study Centre (TPSC)
+          option(value="PARK") The Park Building (PARK)
+          option(value="MEADOW") The Meadow Building (MEADOW)
+          option(value="TEC") The Enterprise Centre (TEC)
+          option(value="QB") Queen's Building (QB)
+          option(value="NEWSCI") New Science Building (NEWSCI)
+          option(value="MED") Medical Building (MED)
+          option(value="MMB") Media and Music Building (MMB)
+          option(value="LSB") Lawrence Stenhouse Building (LSB)
+          option(value="JSC") Juliawn Study Centre (JSC)
+          option(value="HLB") Hubert Lamb Building (HLB)
+          option(value="EFRY") Elizabeth Fry Building (EFRY)
+          option(value="ECB") Edith Cavell Building (ECB)
+          option(value="EH") Earlham Hall (EH)
+          option(value="CENT") Centrum (CENT)
+          option(value="NMRB") Bob Champion Research and Education Building (NMRB)
+          option(value="BIOENE") Biomass Energy Centre (BIOENE)
+          option(value="BMRC") Bio-Medical Research Centre (BMRC)
+          option(value="AHB") Arts and Humanities Building (AHB)
+
+        label(for="arrivalSelect") Select arrival date and time
+        input(type="datetime-local", value="Arrival date", id="arrivalSelect", name="arrivalSelect") 
+
+        label(for="departureSelect") Select departure date and time
+        input(type="datetime-local", value="Departure date", id = "departureSelect", name="departureSelect") 
+        br
+        input(type="submit", name="Submit Request")
+     div(class = "sideMap")
+      iframe(src="https://www.google.com/maps/d/u/0/embed?mid=19Y2uYDjzPjg_DmreQQnEMcAjHySUdUI&ehbc=2E312F&noprof=1")

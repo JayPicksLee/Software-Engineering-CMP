@@ -5,6 +5,7 @@ const usermodel = require('../model/users.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'PMS' });
+  
 });
 
 router.post('/', (req, res, next)=>
@@ -15,6 +16,7 @@ router.post('/', (req, res, next)=>
   let loginResult = usermodel.checkLoginDetails(username, password);
   if(loginResult)
   {
+    req.session.userID= usermodel.getUserID(username);
     res.render("main", { title:username});
   }
   else

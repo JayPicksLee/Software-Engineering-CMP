@@ -14,10 +14,13 @@ router.post('/', (req, res, next) => {
 
   try {
       // Sign up the user
+      console.log("post received");
       usermodel.signUpUser(username, password);
       // Redirect to login page after successful sign-up
+      console.log("Signup successful");
       res.redirect('/login');
-  } catch (error) {
+      
+  } catch (error) { 
       // Handle error if username already exists
       res.render("register", { title: 'SignUp page', error: true, message: error.message });
   }
