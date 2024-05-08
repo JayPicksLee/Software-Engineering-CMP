@@ -5,9 +5,9 @@ exports.getRequests=()=>{
     return requestInfo;
     }
 
-exports.createRequest = (department, destination, arriveDate, departDate) => {
+exports.createRequest = (userID,department, destination, arriveDate, departDate) => {
     try {
-        requestInfo.push({ department, destination, arriveDate, departDate });
+        requestInfo.push({ userID, department, destination, arriveDate, departDate });
 
         fs.writeFileSync('./requestdb.json', JSON.stringify(requestInfo));
     } catch (error) {

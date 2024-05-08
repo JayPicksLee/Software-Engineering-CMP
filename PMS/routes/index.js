@@ -16,6 +16,7 @@ router.post('/', (req, res, next)=>
   let loginResult = usermodel.checkLoginDetails(username, password);
   if(loginResult)
   {
+    req.session.userID= usermodel.getUserID(username);
     res.render("main", { title:username});
   }
   else

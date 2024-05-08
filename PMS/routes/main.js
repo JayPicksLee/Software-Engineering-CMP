@@ -8,12 +8,13 @@ router.get('/', function(req, res, next) {
 
 router.post('/', (req, res, next)=>
   {
+    const userID = req.session.userID;
     const departmentsSelect = req.body.departmentsSelect;
     const buildingsSelect = req.body.buildingsSelect;
     const arrivalSelect = req.body.arrivalSelect;
     const departureSelect = req.body.departureSelect;
 
-    requestmodel.createRequest(departmentsSelect, buildingsSelect, arrivalSelect, departmentsSelect);
+    requestmodel.createRequest(userID,departmentsSelect, buildingsSelect, arrivalSelect, departmentsSelect);
 
     console.log('Department selected:', departmentsSelect);
     console.log('Building selected:', buildingsSelect);

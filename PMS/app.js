@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var session = require('express-session');
+var crypto = require('crypto');
 
 var index= require('./routes/index');
 var main = require('./routes/main');
@@ -15,6 +16,16 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+const secretSession = crypto.randomBytes(32).toString('hex');
+
+app.use(session({
+  secret: secretSession,
+  resave: false,
+  saveUninitialized: false
+
+
+}));
 
 app.use(logger('dev'));
 app.use(express.json());
