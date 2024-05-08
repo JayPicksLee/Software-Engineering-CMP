@@ -34,7 +34,15 @@ iframe{
 .nav{
   padding-left: 15px;
   padding-right: 15px;
+  background-color: #1f1e1e;
 }
+
+.nav_logo{
+  width: 15%;
+  height: 15%;
+  margin:10px;
+}
+
 
 .nav_container{
  display: flex;
@@ -56,6 +64,11 @@ iframe{
   font-weight: bold;
   margin-right: 25px;
   color: white;
+  text-decoration: none;
+}
+
+.nav_option:hover {
+  color:#bebebe;
 }
 
 .main_content{
@@ -64,10 +77,49 @@ iframe{
 }
 
 .sideRequest{
-  margin-left: 25px;
-  width: 58%;
+
+  width: 25%;
+  position: relative;
+  background: rgb(46, 47, 71);
+  border: 1px solid #000000;
 }
 
 .sideMap{
   width: 100%;
+  display: contents;
+}
+
+#map{
+  width: 100%;
+}
+
+.sideRequest form input[type="datetime-local"],
+.sideRequest form select {
+  margin-left: 15px;
+  width: 95%;
+  padding: 10px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+}
+
+.sideRequest form input[type="submit"] {
+  width: 95%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #00B7FF;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.sideRequest form input[type="submit"]:hover {
+  background-color: #006ca1;
+}
+
+.sideRequest form label {
+  margin-left: 15px;
+}
+
+.sideRequest h3 {
+  margin-left: 15px;
 }
