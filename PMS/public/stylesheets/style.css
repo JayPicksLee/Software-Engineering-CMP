@@ -65,9 +65,16 @@ iframe{
 
 .sideRequest{
   margin-left: 25px;
-  width: 58%;
+  width: 30%;
+  position: relative;
+  z-index: 1;
+  background: rgb(46, 47, 71);
+  border-radius: 10px;
+  border: 1px solid #fff;
 }
 
 .sideMap{
   width: 100%;
+  display: contents;
 }
+
