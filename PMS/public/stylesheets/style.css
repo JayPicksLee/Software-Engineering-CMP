@@ -78,3 +78,32 @@ iframe{
   display: contents;
 }
 
+#map{
+  width: 100%;
+}
+
+.sideRequest form input[type="datetime-local"],
+.sideRequest form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.sideRequest form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00B7FF;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sideRequest form input[type="submit"]:hover {
+  background-color: #006ca1;
+}
+
+.sideRequest form label {
+  font-weight: bold;
+}
