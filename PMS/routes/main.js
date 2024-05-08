@@ -14,7 +14,7 @@ router.post('/', (req, res, next)=>
     const arrivalSelect = req.body.arrivalSelect;
     const departureSelect = req.body.departureSelect;
 
-    requestmodel.createRequest(userID,departmentsSelect, buildingsSelect, arrivalSelect, departmentsSelect);
+    requestmodel.createRequest(userID,departmentsSelect, buildingsSelect, arrivalSelect, departureSelect);
 
     console.log('Department selected:', departmentsSelect);
     console.log('Building selected:', buildingsSelect);
