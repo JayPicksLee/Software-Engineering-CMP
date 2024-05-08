@@ -14,7 +14,8 @@ router.post('/', (req, res, next) => {
   const email = req.body.email;
   const phoneNumber = req.body.phoneNumber;
 
-  try {
+  try 
+  {
       // Sign up the user
       console.log("post received");
       usermodel.signUpUser(username, password, email, phoneNumber);

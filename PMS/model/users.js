@@ -1,4 +1,5 @@
 const fs = require('fs');
+const {check, validationResult} = require("express-validator");
 const userInfo = JSON.parse(fs.readFileSync('./userdb.json', 'utf-8'));
 
 exports.getUsers=()=>{
@@ -45,6 +46,10 @@ exports.signUpUser = (username, password, email, phoneNumber) =>
     {
         const randomId = generateRandomId(8);
         const accountLevel = 0;
+        //var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+        const errors = validationResult(req);
+
         console.log("Generated user id: ", randomId);
 
         const userExists = userInfo.some(user => user.username === username);
@@ -57,6 +62,7 @@ exports.signUpUser = (username, password, email, phoneNumber) =>
         {
             throw new Error('ID already exists');
         }
+    
 
         userInfo.push({accountLevel, randomId, username, password, email, phoneNumber});
         console.log("Pushed ", accountLevel, " ", randomId, " ", username, " ", password, " ", email, " ", phoneNumber);
