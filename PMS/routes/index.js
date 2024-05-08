@@ -17,7 +17,7 @@ router.post('/', (req, res, next)=>
   if(loginResult)
   {
     req.session.userID= usermodel.getUserID(username);
-    res.render("main", { title:username});
+    res.render("main");
   }
   else
   {
