@@ -40,7 +40,7 @@ iframe{
 .nav_logo{
   width: 15%;
   height: 15%;
-  margin:10px;
+  margin: .5%;
 }
 
 
@@ -95,21 +95,21 @@ iframe{
 
 .sideRequest form input[type="datetime-local"],
 .sideRequest form select {
-  margin-left: 15px;
-  width: 95%;
+  margin-left: 4%;
+  width: 93%;
   padding: 10px;
   border: 2px solid #000000;
   border-radius: 5px;
 }
 
 .sideRequest form input[type="submit"] {
-  width: 95%;
+  width: 93%;
   padding: 10px;
   border-radius: 5px;
   background-color: #00B7FF;
   color: #fff;
   cursor: pointer;
-  margin-left: 15px;
+  margin-left: 4%;
 }
 
 .sideRequest form input[type="submit"]:hover {
@@ -117,11 +117,11 @@ iframe{
 }
 
 .sideRequest form label {
-  margin-left: 15px;
+  margin-left: 4%
 }
 
 .sideRequest h3 {
-  margin-left: 15px;
+  margin-left: 4%;
 }
 
 #parkinglot{
@@ -131,3 +131,9 @@ iframe{
   height:80%;
   width: auto;
 }
+
+@media only screen and (max-width: 900px) {
+  .nav_logo{
+    width: 120px;
+  }
+  }
