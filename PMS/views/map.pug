@@ -2,16 +2,27 @@ html
     head
 
         title Map Page
-        link(rel='stylesheet', href='/stylesheets/Map.css')
-
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    nav(class="nav")
+        div(class="nav_container")
+            div(class= "nav_logo")
+                img(src="/images/UEALogo.png", alt="", id="logo")
+            ul(class="nav_list")
+                li 
+                 a(class = "nav_option", href='main') Home
+                li 
+                 a(class = "nav_option", href='bookings') Bookings
+                li 
+                 a(class = "nav_option", href='bookings') ??
+                li  
+                 a(class = "nav_option", href='bookings') ??
     body
-        header
-            h1 Parking Lot Map
+
 
     
 
         main
-            img(src='/images/ParkingLot.jpg' alt='Parking Lot Image' height="500" width = "600")
+            img(id = "parkinglot", src='/images/ParkingLot.jpg' alt='Parking Lot Image' height="500" width = "600")
 
     footer
         p &copy; Parking Lot Map

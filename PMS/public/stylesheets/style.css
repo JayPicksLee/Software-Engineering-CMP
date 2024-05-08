@@ -34,7 +34,7 @@ iframe{
 .nav{
   padding-left: 15px;
   padding-right: 15px;
-  background-color: #1f1e1e;
+  background-color: #1f1f1f;
 }
 
 .nav_logo{
@@ -80,7 +80,7 @@ iframe{
 
   width: 25%;
   position: relative;
-  background: rgb(46, 47, 71);
+  background: rgb(4, 6, 39);
   border: 1px solid #000000;
 }
 
@@ -122,4 +122,12 @@ iframe{
 
 .sideRequest h3 {
   margin-left: 15px;
+}
+
+#parkinglot{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height:80%;
+  width: auto;
 }
