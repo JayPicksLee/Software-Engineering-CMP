@@ -6,8 +6,10 @@ return userInfo;
 }
 
 exports.getUserID=(username)=>{
-    for(let i = 0; i< userInfo.length;i++){
-        if((userInfo[i].username === username)){
+    for(let i = 0; i< userInfo.length;i++)
+    {
+        if((userInfo[i].username === username))
+        {
             return userInfo[i].randomId;
         }
     }
@@ -16,48 +18,54 @@ exports.getUserID=(username)=>{
 
 exports.checkLoginDetails = (username, password)=>{
     var check = false;
-    for (var i=0; i < userInfo.length; i++){
+    for (var i=0; i < userInfo.length; i++)
+    {
         if (userInfo[i].username == username && userInfo[i].password == password)
-         {
+        {
             check = true;
-         }
+        }
     }   
     return check;
 }
 
-function generateRandomId(length) {
+function generateRandomId(length) 
+{
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let randomId = '';
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) 
+    {
         randomId += characters.charAt(Math.floor(Math.random() * characters.length));
     }
     return randomId;
 }
 
-exports.signUpUser = (username, password) => {
-    try {
+exports.signUpUser = (username, password, email, phoneNumber) => 
+    {
+    try 
+    {
         const randomId = generateRandomId(8);
+        const accountLevel = 0;
         console.log("Generated user id: ", randomId);
 
-        // Check if username already exists
         const userExists = userInfo.some(user => user.username === username);
-        if (userExists) {
+        if (userExists) 
+        {
             throw new Error('Username already exists');
         }
         const randomIdExists = userInfo.some(user => user.randomId === randomId)
-        if(randomIdExists){
+        if(randomIdExists)
+        {
             throw new Error('ID already exists');
         }
 
-        
-        // Add new user to user data
-        userInfo.push({randomId,username, password });
-        console.log("Pushed ", randomId, " ", username, " ", password);
+        userInfo.push({accountLevel, randomId, username, password, email, phoneNumber});
+        console.log("Pushed ", accountLevel, " ", randomId, " ", username, " ", password, " ", email, " ", phoneNumber);
 
-        // Write updated user data back to JSON file
         fs.writeFileSync('./userdb.json', JSON.stringify(userInfo));
 
-    } catch (error) {
+    } 
+    catch (error) 
+    {
         throw new Error('Error saving user data: ' + error.message);
     }
 }
