@@ -15,4 +15,9 @@ block content
         li  
          a(class = "nav_option", href='bookings')
   main
-    
+    section(class="booking_content")
+      div(id ="bookings_display")
+       li(id = "bookings_list")
+        each request in data
+            ul= "Department: " + request.department + " Destination: " + request.destination + " Arrival date and time: " + request.arriveDate + " Departure date and time: " + request.departDate
+        
