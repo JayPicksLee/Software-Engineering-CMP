@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
       res.render('bookings', { error: true, message: "Couldn't post requests" });
     }
   }
-  res.render("bookings", {data: data});
+  res.render("bookings", {requests: data});
 });
 
 module.exports = router;

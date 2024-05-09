@@ -7,13 +7,23 @@ block content
         img(src="/images/UEALogo.png", alt="", id="logo")
       ul(class="nav_list")
         li 
-         a(class = "nav_option", href='#') Home
-        li 
-         a(class = "nav_option", href='bookings') Bookings
+         a(class = "nav_option", href='mainAdmin') Home
         li 
          a(class = "nav_option", href='bookings') Account
         li  
          a(class = "nav_option", href='bookings') Help
   main
   section(class = "main_content")
-     div(class ="bookings")
+    div(class ="requests")
+      h2 Manage requests
+      ul 
+         each request in requests
+            li= "Department: " + request.department + " Destination: " + request.destination + " Arrival date and time: " + request.arriveDate + " Departure date and time: " + request.departDate
+
+    div(class = "carparks")
+      h2 Car park status
+      button Create new parking lot
+      ul
+       each carpark in carparks
+         li= "Car park: " + carpark.name + " Max Capacity: " + carpark.max_capacity + " Available: " + carpark.available + " Reserved: " + carpark.reserved + " Occupied: " + carpark.occupied
+      
