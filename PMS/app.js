@@ -42,6 +42,7 @@ app.use('/map', map);
 app.use('/register', register);
 app.use('/submit', main);
 app.use('/mainAdmin', mainAdmin)
+app.use('/submitAdmin', mainAdmin);
 app.use('/bookings', bookings)
 
 // catch 404 and forward to error handler

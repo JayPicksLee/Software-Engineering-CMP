@@ -16,9 +16,14 @@ exports.getCarparkCapacity=(carparkId)=>{
         return null;
 }
 
-exports.createParkingLot = (name, max_capacity, reserved, available, occupied) => {
+exports.createParkingLot = (name, max_capacity) => {
     try {
-        carParksInfo.push({ name, max_capacity, reserved, available, occupied});
+        console.log(max_capacity);
+        const available = max_capacity;
+        const reserved = 0;
+        const occupied = 0;
+
+        carParksInfo.push({name, max_capacity, reserved, available, occupied});
 
         fs.writeFileSync('./carParks.json', JSON.stringify(carParksInfo));
         

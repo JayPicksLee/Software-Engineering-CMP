@@ -46,4 +46,15 @@ router.get('/', function(req, res, next) {
   res.render("mainAdmin", {requests: data, carparks:data2});
 });
 
+router.post('/', (req, res, next)=>
+  {
+    const name = req.body.newLotName;
+    const max_capacity = req.body.newLotMaxCapacity;
+
+    carparkModel.createParkingLot(name, max_capacity);
+
+    res.redirect('/mainAdmin');
+
+});
+
 module.exports = router;

@@ -19,11 +19,26 @@ block content
       ul 
          each request in requests
             li= "Department: " + request.department + " Destination: " + request.destination + " Arrival date and time: " + request.arriveDate + " Departure date and time: " + request.departDate
+            button Approve 
+            button Reject
 
     div(class = "carparks")
       h2 Car park status
-      button Create new parking lot
+      button(onclick="showNewParkingDialog()") Create new parking lot
+      dialog(id = "newParking-dialog")
+          h2 Create new parking lot 
+          form(action='/submitAdmin', method= 'POST') 
+            label(for="newLotName") Name
+            input(type="text", name ="newLotName")
+            label(for="newLotMaxCapacity") Max Capacity
+            input(type="text", name="newLotMaxCapacity")
+            input(type="submit", value = "Create") 
+            button(onclick="closeNewParkingDialog()", type ="button") Cancel
+            
       ul
        each carpark in carparks
          li= "Car park: " + carpark.name + " Max Capacity: " + carpark.max_capacity + " Available: " + carpark.available + " Reserved: " + carpark.reserved + " Occupied: " + carpark.occupied
-      
+         button Remove lot
+         button Block space 
+         
+      script(src="/javascripts/client.js")

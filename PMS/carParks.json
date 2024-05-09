@@ -1,8 +1,1 @@
-[{"carparkId": "1","name":"UEA Car park", "max_capacity": 120, "reserved":0, "available": 120, "occupied": 0},
- {"carparkId": "2", "name": "Elizabeth Fry/Queens parking lot", "max_capacity": 25, "reserved":0,"available":25, "occupied": 0},
- {"carparkId": "3","name":"Sainsbury Centre parking lot", "max_capacity": 35, "reserved":0, "available": 35, "occupied": 0},
- {"carparkId": "4","name":"Earlham park parking lot", "max_capacity": 20, "reserved":0, "available": 20, "occupied": 0},
- {"carparkId": "5","name":"Sportspark parking lot", "max_capacity": 60, "reserved":0, "available": 60, "occupied": 0},
- {"carparkId": "6","name":"UEA West parking lot", "max_capacity": 40, "reserved":0, "available": 40, "occupied": 0},
- {"carparkId": "7","name":"INTO parking lot", "max_capacity": 10, "reserved":0, "available": 10, "occupied": 0}
-]
+[{"carparkId":"1","name":"UEA Car park","max_capacity":120,"reserved":0,"available":120,"occupied":0},{"carparkId":"2","name":"Elizabeth Fry/Queens parking lot","max_capacity":25,"reserved":0,"available":25,"occupied":0},{"carparkId":"3","name":"Sainsbury Centre parking lot","max_capacity":35,"reserved":0,"available":35,"occupied":0},{"carparkId":"4","name":"Earlham park parking lot","max_capacity":20,"reserved":0,"available":20,"occupied":0},{"carparkId":"5","name":"Sportspark parking lot","max_capacity":60,"reserved":0,"available":60,"occupied":0},{"carparkId":"6","name":"UEA West parking lot","max_capacity":40,"reserved":0,"available":40,"occupied":0},{"carparkId":"7","name":"INTO parking lot","max_capacity":10,"reserved":0,"available":10,"occupied":0}]
