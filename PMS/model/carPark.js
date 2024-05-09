@@ -8,7 +8,7 @@ exports.getCarparks=()=>{
 exports.getCarparkCapacity=(carparkId)=>{
     for(let i = 0; i< carParksInfo.length;i++)
         {
-            if((carParksInfo[i].carparkId === carpkarId))
+            if((carParksInfo[i].carparkId === carparkId))
             {
                 return carParksInfo[i].capacity;
             }
