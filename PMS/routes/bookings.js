@@ -1,6 +1,4 @@
 var express = require('express');
-const fs = require('fs');
-const path = require('path');
 var router = express.Router();
 const requestmodel = require('../model/requests.js');
 
