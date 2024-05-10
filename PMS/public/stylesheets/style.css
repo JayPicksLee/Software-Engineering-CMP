@@ -65,10 +65,36 @@ iframe{
   margin-right: 25px;
   color: white;
   text-decoration: none;
+  position: relative;
 }
 
 .nav_option:hover {
   color:#bebebe;
+}
+
+.nav_option:focus,
+.nav_option:hover {
+  color: #fff;
+}
+
+.nav_option:focus:after,
+.nav_option:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.nav_option:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
 }
 
 .main_content{
