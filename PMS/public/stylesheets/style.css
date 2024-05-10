@@ -158,6 +158,31 @@ iframe{
   width: auto;
 }
 
+.center{
+  text-align: center;
+}
+
+.booking_content {
+  width: fit-content;
+  margin: 20px auto;
+}
+
+#bookings_list {
+  list-style: none;
+  padding: 0;
+}
+
+#bookings_list li {
+  margin-bottom: 20px; 
+  border-bottom: 1px solid #ffffff; 
+  padding-bottom: 10px; 
+  font-size: 25px;
+}
+
+.booking_info {
+  margin-bottom: 5px;
+}
+
 @media only screen and (max-width: 900px) {
   .nav_logo{
     width: 120px;
