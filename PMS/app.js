@@ -44,9 +44,6 @@ app.use('/main', main);
 app.use('/map', map);
 app.use('/register', register);
 app.use('/mainAdmin', mainAdmin)
-app.use('/bookings', bookings)
-app.use('/submitAdmin', mainAdmin);
-app.use('/deleteLot', mainAdmin);
 app.use('/bookings', bookings);
 app.use('/requestedParking', requestedParking);
 
