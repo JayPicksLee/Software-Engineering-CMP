@@ -12,7 +12,6 @@ var map = require('./routes/map');
 var register = require('./routes/register');
 var mainAdmin = require('./routes/mainAdmin');
 var bookings = require('./routes/bookings');
-var requestedParking = require('./routes/requestedParking')
 
 var app = express();
 
@@ -45,7 +44,6 @@ app.use('/map', map);
 app.use('/register', register);
 app.use('/mainAdmin', mainAdmin)
 app.use('/bookings', bookings);
-app.use('/requestedParking', requestedParking);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

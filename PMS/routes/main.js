@@ -8,6 +8,13 @@ router.get(
   res.render("main", {title: 'Main page'});
 });
 
+router.get(
+  '/requestedParking', 
+  function(req, res, next) {
+  res.render("requestedParking", {title: 'Main page'});
+});
+
+
 router.post(
   '/', (req, res, next)=>
   {
@@ -24,7 +31,7 @@ router.post(
     console.log('Arrival Date Input:', arrivalSelect);
     console.log('Departure Date Input:', departureSelect);
 
-    res.redirect('/main');
+    res.render('main/requestedParking');
 
 });
 
