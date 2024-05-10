@@ -36,9 +36,10 @@ body {
     height: 350px;
     position: relative;
     z-index: 1;
-    background: grey;
+    background: rgb(128, 128, 128, 0.85);
     border-radius: 10px;
     border: 1px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
   }
 
   .wrapper::before{
@@ -62,4 +63,25 @@ body {
     border: none;
     border-radius: 10px;
     border: 1px solid #fff;
+    cursor: pointer;
   }
+
+  input:hover {
+    background-color: rgb(206, 206, 206);
+    border: 1px solid rgb(206, 206, 206);
+  }
+
+a{
+  color:blue;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+input[type="text"],
+input[type="password"] {
+  cursor: text; 
+}
+
