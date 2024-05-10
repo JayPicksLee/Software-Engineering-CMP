@@ -57,4 +57,11 @@ router.post('/', (req, res, next)=>
 
 });
 
+router.delete('/', (req, res)=>{
+    const id = parseInt(req.body.id)
+    data2 = data2.filter(lot => lot.carparkId !== id);
+
+    res.redirect('/mainAdmin');
+})
+
 module.exports = router;

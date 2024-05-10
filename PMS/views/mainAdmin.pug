@@ -30,15 +30,18 @@ block content
           form(action='/submitAdmin', method= 'POST') 
             label(for="newLotName") Name
             input(type="text", name ="newLotName")
+
             label(for="newLotMaxCapacity") Max Capacity
             input(type="text", name="newLotMaxCapacity")
+
             input(type="submit", value = "Create") 
             button(onclick="closeNewParkingDialog()", type ="button") Cancel
             
       ul
        each carpark in carparks
          li= "Car park: " + carpark.name + " Max Capacity: " + carpark.max_capacity + " Available: " + carpark.available + " Reserved: " + carpark.reserved + " Occupied: " + carpark.occupied
-         button Remove lot
+         form(action='/', method='DELETE')
+         input(type="submit", value = "DELETE LOT")
          button Block space 
          
       script(src="/javascripts/client.js")

@@ -31,4 +31,3 @@ exports.createParkingLot = (name, max_capacity) => {
         throw new Error('Error saving request data: ' + error.message);
     }
 }
-
