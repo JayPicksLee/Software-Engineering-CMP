@@ -80,4 +80,8 @@ a:hover{
   text-decoration: underline;
 }
 
+input[type="text"],
+input[type="password"] {
+  cursor: text; 
+}
 
