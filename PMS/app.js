@@ -6,7 +6,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var crypto = require('crypto');
 
-var index= require('./routes/index');
+var login = require('./routes/login');
 var main = require('./routes/main');
 var map = require('./routes/map');
 var register = require('./routes/register');
@@ -21,10 +21,11 @@ app.set('view engine', 'pug');
 
 const secretSession = crypto.randomBytes(32).toString('hex');
 
-app.use(session({
-  secret: secretSession,
-  resave: false,
-  saveUninitialized: false
+app.use(
+  session({
+    secret: secretSession,
+    resave: false,
+    saveUninitialized: false
 
 
 }));
@@ -35,15 +36,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/login', index);
+// app.use(routes);
+
+app.use('/', login);
 app.use('/main', main);
 app.use('/map', map);
 app.use('/register', register);
-app.use('/submit', main);
 app.use('/mainAdmin', mainAdmin)
-app.use('/submitAdmin', mainAdmin);
-app.use('/deleteLot', mainAdmin);
 app.use('/bookings', bookings)
 
 // catch 404 and forward to error handler

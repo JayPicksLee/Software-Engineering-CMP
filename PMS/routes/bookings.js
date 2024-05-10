@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 const requestmodel = require('../model/requests.js');
 
-router.get('/', function(req, res, next) {
+router.get(
+  '/', 
+function(req, res, next) {
 
   let data = [];
 

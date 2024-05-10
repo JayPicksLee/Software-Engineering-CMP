@@ -3,12 +3,13 @@ var router = express.Router();
 const usermodel = require('../model/users.js');
 
 
-router.get('/', function(req, res, next) {
+router.get(
+  '/', function(req, res, next) {
   res.render("register", {title: 'SignUp page'});
 });
 
 
-router.post('/', (req, res, next) => {
+router.post('/register', (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
@@ -20,7 +21,7 @@ router.post('/', (req, res, next) => {
       usermodel.signUpUser(username, password, email, phoneNumber);
       
       console.log("Signup successful");
-      res.redirect('/login');
+      res.redirect('/');
       
   } 
   catch (error) 

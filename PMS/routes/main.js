@@ -2,11 +2,14 @@ var express = require('express');
 var router = express.Router();
 const requestmodel = require('../model/requests.js');
 
-router.get('/', function(req, res, next) {
+router.get(
+  '/', 
+  function(req, res, next) {
   res.render("main", {title: 'Main page'});
 });
 
-router.post('/', (req, res, next)=>
+router.post(
+  '/', (req, res, next)=>
   {
     const userID = req.session.userID;
     const departmentsSelect = req.body.departmentsSelect;
