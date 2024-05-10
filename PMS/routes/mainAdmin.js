@@ -36,7 +36,9 @@ function requestsDiv(data){
   return data;
 }
 
-router.get('/', function(req, res, next) {
+router.get
+('/', 
+function(req, res, next) {
   let data = [];
   let data2 = [];
 
@@ -46,7 +48,9 @@ router.get('/', function(req, res, next) {
   res.render("mainAdmin", {requests: data, carparks:data2});
 });
 
-router.post('/', (req, res, next)=>
+router.post
+('/', 
+(req, res, next)=>
   {
     const name = req.body.newLotName;
     const max_capacity = req.body.newLotMaxCapacity;
@@ -57,7 +61,9 @@ router.post('/', (req, res, next)=>
 
 });
 
-router.delete('/', (req, res)=>{
+router.delete(
+  '/', 
+  (req, res)=>{
     const id = parseInt(req.body.id)
     data2 = data2.filter(lot => lot.carparkId !== id);
 
