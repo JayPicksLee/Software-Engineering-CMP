@@ -31,7 +31,7 @@ router.post(
     console.log('Arrival Date Input:', arrivalSelect);
     console.log('Departure Date Input:', departureSelect);
 
-    res.render('main/requestedParking');
+    res.render('requestedParking');
 
 });
 
