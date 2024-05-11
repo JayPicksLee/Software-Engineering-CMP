@@ -6,7 +6,7 @@ router.get(
   '/', 
   async function(req, res) {
     try{
-      let request = await requestmodel.getRequestsUser(req.session.userID);
+      let request = await requestmodel.getRequestsByUserId(req.session.userID);
 
       res.render("bookings", {userRequests: request});
     }catch(err){

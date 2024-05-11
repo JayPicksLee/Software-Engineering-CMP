@@ -1,5 +1,5 @@
-const { request } = require('express');
 const mongoose = require('mongoose');
+const Request = require('./requests');
 
 const Schema = mongoose.Schema;
 
@@ -15,16 +15,20 @@ const bookingSchema = new Schema({
 
 const Booking = mongoose.model("Booking", bookingSchema)
 
-exports.createBooking = async (userid) => {
+exports.createBooking = async (requestObject) => {
     try {
-
-        const newBooking = new Booking({userID: requestObject.userID,
+        console.log(requestObject);
+        const newBooking = new Booking({
+             userID: requestObject.userID,
              department: requestObject.department, 
              destination: requestObject.destination,
-              arriveDate: requestObject.arriveDate,
-               departDate: requestObject.departDate});
-        console.log("E " + newBooking);
+             arriveDate: requestObject.arriveDate,
+             departDate: requestObject.departDate
+            });
+            
         const savedBooking = await newBooking.save();
+        console.log("Booking created: ", savedBooking);
+
     } catch (error) {
         throw new Error('Error saving request data: ' + error.message);
     }

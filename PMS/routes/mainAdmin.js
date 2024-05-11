@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const requestModel = require('../model/requests.js');
 const carparkModel = require('../model/carPark.js');
-const bookingsModel = require('../model/bookings.js');
+
 
 router.get
 ('/', 
@@ -31,18 +31,13 @@ router.post
 
 router.post
 ('/approveRequest', 
-(req, res)=>
+  async (req, res)=>
   {
     const requestId = {_id: req.body.id};
-    try {
-      console.log(requestId);
-      bookingsModel.createBooking(requestId);  
-      console.log("BOOKING CRREATED")
-      res.redirect("/mainAdmin");
-      
-    } catch (error) {
-      
-    }
+    console.log(requestId);
+    requestModel.approveRequest(requestId);
+
+    res.redirect('/mainAdmin');
 
 });
 

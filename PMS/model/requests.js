@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const Schema=  mongoose.Schema;
 
+const bookingsModel = require('../model/bookings.js');
+
 const requestSchema = new Schema({
     userID: String,
     department: String,
@@ -29,6 +31,20 @@ exports.getRequests=async ()=>{
 }
 
 
+exports.approveRequest=async (requestId)=>{
+    try {
+        
+        let request = await Request.findById(requestId);
+        console.log(request)
+        bookingsModel.createBooking(request);
+        
+        
+    } catch (error) {
+        console.log("DIDNT DLEETE");
+    }
+    
+}
+
 exports.rejectRequest=async (requestId)=>{
     try {
         
@@ -39,10 +55,19 @@ exports.rejectRequest=async (requestId)=>{
     }
     
 }
+exports.getRequestById=async (requestId)=>{
+    try{
+        const request = await Request.find({requestId});
+        console.log(request);
+        return request;
+    }catch(error){
+        throw new Error('Error finding request by ID: ' + error.message);
+    }
+}
 
-
-exports.getRequestsUser=async (userID)=>{
+exports.getRequestsByUserId=async (userID)=>{
     let all = await Request.find({userID});
+    console.log(all);
     console.log("Finding requests for ...." + userID);
     return all;
 }
