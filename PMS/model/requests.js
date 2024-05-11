@@ -15,18 +15,21 @@ const requestSchema = new Schema({
 const Request = mongoose.model("Request", requestSchema)
 
 exports.getRequests=async ()=>{
+    let all = [];
     try{
-        const all = await Request.find({});
+        console.log("Finding requests ....");
+         all = await Request.find();
+
     }catch(err){
-        
+        console.log("CANT FIND REQUESTS");
     }
     
     return all;
 }
 
-exports.getRequests=async (userID)=>{
-    const all = await Request.find({userID});
-    
+exports.getRequestsUser=async (userID)=>{
+    let all = await Request.find({userID});
+    console.log("Finding requests for ...." + userID);
     return all;
 }
 

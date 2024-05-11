@@ -17,32 +17,30 @@ const carParkSchema = new Schema({
 const Carpark = mongoose.model("Carpark", carParkSchema)
 
 exports.getCarparks=async ()=>{
-    const all = await Request.find({});
-
+    const all = await Carpark.find({});
+    console.log("Finding car parks");
     return all;
 }
 
-exports.getCarparkCapacity=(carparkId)=>{
-    for(let i = 0; i< carParksInfo.length;i++)
-        {
-            if((carParksInfo[i].carparkId === carparkId))
-            {
-                return carParksInfo[i].capacity;
-            }
-        }
-        return null;
+exports.getCarparkCapacity=async (carparkId)=>{
+    const id = await Carpark.findOne({carparkId})
+
+    return id.id;
 }
 
-exports.createParkingLot = (name, max_capacity) => {
+exports.createParkingLot = async (name, max_capacity) => {
     try {
-        console.log(max_capacity);
         const available = max_capacity;
         const reserved = 0;
         const occupied = 0;
 
-        carParksInfo.push({name, max_capacity, reserved, available, occupied});
-
-        fs.writeFileSync('./carParks.json', JSON.stringify(carParksInfo));
+        const newCarpark = new Carpark({name: name,
+            max_capacity: max_capacity, 
+            available: max_capacity,
+            reserved: reserved,
+            occupied: occupied, });
+              
+       const savedRequest = await newCarpark.save();
         
     } catch (error) {
         throw new Error('Error saving request data: ' + error.message);

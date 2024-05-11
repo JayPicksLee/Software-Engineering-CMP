@@ -3,50 +3,21 @@ var router = express.Router();
 const requestmodel = require('../model/requests.js');
 const carparkModel = require('../model/carPark.js');
 
-function carparksDiv(data2){
-  let carparks = carparkModel.getCarparks();
-
-  for (const carpark of carparks) {
-    if (carpark) {
-
-     data2.push(carpark);
-
-    }else{
-      res.render('bookings', { error: true, message: "Couldn't post requests" });
-    }
-  }
-  return data2;
-}
-
-function requestsDiv(data){
-  let requests = requestmodel.getRequests();
-
-  for (const request of requests) {
-    if (request.approvedStatus == false) {
-
-      data.push(request);
-
-    }else{
-      res.render('bookings', { error: true, message: "Couldn't post requests" });
-    }
-  }
-  return data;
-}
-
 router.get
 ('/', 
   async function(req, res, next) {
 
-  // requestsDiv(data);
-  let request = await requestmodel.getRequests(req.session.userID)
-
-  res.render("mainAdmin", {userRequests: request});
+  let request = await requestmodel.getRequests();
+  
+  let carpark = await carparkModel.getCarparks();
+  
+  res.render("mainAdmin", {userRequests: request, carparks: carpark });
 
 });
 
 router.post
 ('/', 
-(req, res, next)=>
+(req, res)=>
   {
     const name = req.body.newLotName;
     const max_capacity = req.body.newLotMaxCapacity;

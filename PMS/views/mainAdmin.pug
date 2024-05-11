@@ -21,7 +21,8 @@ block content
             li #{request.destination} #{request.department}  #{request.arriveDate}  #{request.departDate}
             button Approve 
             button Reject
-
+       else
+        li THERE ARE NO VALUES
     div(class = "carparks")
       h2 Car park status
       button(onclick="showNewParkingDialog()") Create new parking lot
@@ -39,7 +40,7 @@ block content
             
       ul
        each carpark in carparks
-         li= "Car park: " + carpark.name + " Max Capacity: " + carpark.max_capacity + " Available: " + carpark.available + " Reserved: " + carpark.reserved + " Occupied: " + carpark.occupied
+         li Name: #{carpark.name}  Capacity: #{carpark.max_capacity} Avaiable: #{carpark.available} Occupied: #{carpark.occupied} Reserved: #{carpark.reserved}
          form(action='/', method='DELETE')
          input(type="submit", value = "DELETE LOT")
          button Block space 
