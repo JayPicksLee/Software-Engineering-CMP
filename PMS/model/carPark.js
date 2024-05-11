@@ -59,3 +59,18 @@ exports.createParkingLot = async (name, max_capacity) => {
         throw new Error('Error saving request data: ' + error.message);
     }
 }
+
+exports.updateAvailableSpaces = async (carparkId, newAvailableSpaces) => {
+    try {
+        const carpark = await Carpark.findById(carparkId);
+        if (!carpark) {
+            throw new Error("Error - Could not find car park");
+        }
+
+        carpark.available = newAvailableSpaces;
+        await carpark.save();
+        console.log("Car park ${carparkId} now has ${newAvailableSpaces} spaces available");
+    } catch (error) {
+        throw new Error("Error updating available spaces: " +error.message);
+    }
+}
