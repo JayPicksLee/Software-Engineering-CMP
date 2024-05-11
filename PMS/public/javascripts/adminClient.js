@@ -1,9 +1,18 @@
-const dialog =  document.getElementById("newParking-dialog")
+const parkingDialog =  document.getElementById("newParking-dialog")
+const requestDialgo =  document.getElementById("request-dialog")
 
 function showNewParkingDialog(){
-    dialog.showModal()
+    parkingDialog.showModal()
 }
 
 function closeNewParkingDialog(){
-    dialog.close()
+    parkingDialog.close()
+}
+
+function showRequestDialog(){
+    requestDialgo.showModal()
+}
+
+function closeRequestDialog(){
+    requestDialgo.close()
 }

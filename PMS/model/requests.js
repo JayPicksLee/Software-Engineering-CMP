@@ -9,6 +9,7 @@ const requestSchema = new Schema({
     arriveDate: Date,
     departDate: Date,
     approvedStatus: Boolean,
+    dateCreated: Date,
 
 });
 
@@ -26,6 +27,7 @@ exports.getRequests=async ()=>{
     
     return all;
 }
+
 
 exports.rejectRequest=async (requestId)=>{
     try {
@@ -48,16 +50,20 @@ exports.getRequestsUser=async (userID)=>{
 exports.createRequest = async (userID,department, destination, arriveDate, departDate) => {
     try {
         var approvedStatus = false;
+        var currentDateCreated = new Date();
+        console.log(currentDateCreated);
 
         const newRequest = new Request({userID: userID,
              department: department, 
              destination: destination,
               arriveDate: arriveDate,
                departDate: departDate, 
-               approvedStatus: approvedStatus});
+               approvedStatus: approvedStatus,
+            dateCreated: currentDateCreated});
                
         const savedRequest = await newRequest.save();
     } catch (error) {
         throw new Error('Error saving request data: ' + error.message);
     }
+
 }

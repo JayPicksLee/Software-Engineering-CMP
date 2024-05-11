@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
-const requestmodel = require('../model/requests.js');
+const requestModel = require('../model/requests.js');
 const carparkModel = require('../model/carPark.js');
+const bookingsModel = require('../model/bookings.js');
 
 router.get
 ('/', 
   async function(req, res, next) {
 
-  let request = await requestmodel.getRequests();
+  let request = await requestModel.getRequests();
   
   let carpark = await carparkModel.getCarparks();
   
@@ -32,9 +33,12 @@ router.post
 ('/approveRequest', 
 (req, res)=>
   {
-    const userid = {_id: req.body.id};
+    const requestId = {_id: req.body.id};
     try {
-      console.log(userid);
+      console.log(requestId);
+      bookingsModel.createBooking(requestId);  
+      console.log("BOOKING CRREATED")
+      res.redirect("/mainAdmin");
       
     } catch (error) {
       
@@ -46,11 +50,11 @@ router.post
 ('/rejectRequest', 
 (req, res)=>
   {
-    const userid = {_id: req.body.id};
+    const requestId = {_id: req.body.id};
     try {
-      console.log(userid);
+      console.log(requestId);
       
-      requestmodel.rejectRequest(userid);
+      requestModel.rejectRequest(requestId);
 
       res.redirect("/mainAdmin");
     } catch (error) {
@@ -64,11 +68,11 @@ router.post
 ('/deleteLot', 
 (req, res)=>
   {
-    const userid = {_id: req.body.id};
+    const carparkId = {_id: req.body.id};
     try {
-      console.log(userid);
+      console.log(carparkId);
 
-      carparkModel.deleteCarpark(userid);
+      carparkModel.deleteCarpark(carparkId);
 
       res.redirect("/mainAdmin");
     } catch (error) {

@@ -12,27 +12,42 @@ block content
          a(class = "nav_option", href='bookings') Account
         li  
          a(class = "nav_option", href='bookings') Help
+
   main
-  section(class = "admin_main_content")
+   section(class = "admin_main_content")
     div(class ="requests")
       h2 Manage requests
+
       ul 
        each request in userRequests
-            li #{request.destination} #{request.department}  #{request.arriveDate}  #{request.departDate}
-            form(action='/mainAdmin/approveRequest', method='POST', class = "approve_reject")
-             input(type="hidden", name ="id", value = request._id)
-             button(type = "submit") Approve
-             
-            form(action='/mainAdmin/rejectRequest', method='POST', class = "approve_reject")
-             input(type="hidden", name ="id", value = request._id)
-             button(type = "submit") Reject
+            
+            li Request made: #{request.dateCreated} Made by: #{request.userID} 
+            button(onclick="showRequestDialog()", id = "showRequestDialog") Show more info
+
+            dialog(id = "request-dialog")
+              h1 Information
+              li Request made: #{request.dateCreated} Made by: #{request.userID} Destination: #{request.destination} Department: #{request.department} Arrival date: #{request.arriveDate} Departure date: #{request.departDate}
+              form(action='/mainAdmin/approveRequest', method='POST', class = "approve_reject")
+
+                input(type="hidden", name ="id", value = request._id)
+                button(type = "submit") Approve
+                label(for="location") Assign location
+                select(name="location", id="location") 
+                  each carpark in carparks
+                    option #{carpark.name}
+
+              form(action='/mainAdmin/rejectRequest', method='POST', class = "approve_reject")
+                input(type="hidden", name ="id", value = request._id)
+                button(type = "submit") Reject
        else
         li NO REQUESTS
+
     div(class = "carparks")
       h2 Car park status
         button(onclick="showNewParkingDialog()", id = "new_car_park") Create new parking lot
       dialog(id = "newParking-dialog")
           h2 Create new parking lot 
+          
           form(action='/mainAdmin', method= 'POST') 
             label(for="newLotName") Name
             input(type="text", name ="newLotName")
@@ -48,9 +63,14 @@ block content
          li Name: #{carpark._id} #{carpark.name}  Capacity: #{carpark.max_capacity} Avaiable: #{carpark.available} Occupied: #{carpark.occupied} Reserved: #{carpark.reserved}
            form(action='/mainAdmin/deleteLot', method='POST')
              input(type="hidden", name ="id", value = carpark._id)
-             button(type = "submit", class = "park_buttons") DELETE
-             button(class = "park_buttons") Block space 
+             button(type = "submit", class = "park_buttons") Delete lot
+           form(action='/mainAdmin/reserveSpace', method='POST')
+             input(type="hidden", name ="id", value = carpark._id)
+             button(type = "submit", class = "park_buttons") Reserve Space
+           form(action='/mainAdmin/blockSpace', method='POST')
+             input(type="hidden", name ="id", value = carpark._id)
+             button(type = "submit", class = "park_buttons") Block space
+    
 
-         
          
       script(src="/javascripts/adminClient.js")
