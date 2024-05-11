@@ -16,9 +16,9 @@ var bookings = require('./routes/bookings');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/userdb')
+mongoose.connect('mongodb://127.0.0.1/userdb')
   .then(()=> console.log('Connected to database'))
-  .catch((err) => console.log('Error: ${err}'));
+  .catch((err) => console.log(`Error: ${err}`));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
