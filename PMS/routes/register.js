@@ -3,13 +3,12 @@ var router = express.Router();
 const usermodel = require('../model/users.js');
 
 
-router.get(
-  '/', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render("register", {title: 'SignUp page'});
 });
 
 
-router.post('/register', (req, res, next) => {
+router.post('/', (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;

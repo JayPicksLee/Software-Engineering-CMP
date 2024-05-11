@@ -26,11 +26,6 @@ router.post(
 
     requestmodel.createRequest(userID,departmentsSelect, buildingsSelect, arrivalSelect, departureSelect);
 
-    console.log('Department selected:', departmentsSelect);
-    console.log('Building selected:', buildingsSelect);
-    console.log('Arrival Date Input:', arrivalSelect);
-    console.log('Departure Date Input:', departureSelect);
-
     res.render('requestedParking');
 
 });

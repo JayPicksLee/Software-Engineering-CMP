@@ -13,44 +13,44 @@ router.get(
   
 });
 
-router.post(
-    '/login', 
-    (req, res, next)=>
-  {
-  const username= req.body.username;
+router.post('/login', async (req, res) => {
+  const username = req.body.username;
   const password = req.body.password;
-  
-  let loginResult = usermodel.checkLoginDetails(username, password);
-  if(loginResult)
-  {
-    const userID = usermodel.getUserID(username);
-    req.session.userID = userID;
 
-    const userDBPath = path.join(__dirname, '..', 'userdb.json');
-    const userData = JSON.parse(fs.readFileSync(userDBPath, 'utf-8'));
-    
-    const user = userData.find(user => user.randomId === userID);
-    
-    if (user) 
-    {
-      if (user.accountLevel === 0) 
-      {
-        res.redirect('/main');
-      } 
-      else if (user.accountLevel === 1) 
-      {
-        res.redirect('/mainAdmin');
+  try {
+
+    const exists = await usermodel.checkExists(username);
+
+    if (exists) {
+
+      const userID = await usermodel.getUserID(username);
+      req.session.userID = userID;
+      console.log(userID);
+
+      const user = await usermodel.checkLoginDetails(username, password);
+      if (user) {
+        const level = await usermodel.getUserStatus(username);
+        
+        if (level) { 
+
+          res.redirect('/mainAdmin');
+        } else {
+
+          res.redirect('/main');
+        }
+      } else {
+        console.log("Invalid login details");
+        res.render('index', { error: true, message: "Invalid login details" });
       }
-      else 
-      {
-        res.render('index', { error: true, message: "Invalid account level" });
-      }
+    } else {
+      console.log("User does not exist");
+      res.render('index', { error: true, message: "User does not exist" });
     }
-  }
-  else
-  {
-    res.render('index', {error: true});
+  } catch (error) {
+    console.error("An error occurred:", error);
+    res.render('index', { error: true, message: "An error occurred" });
   }
 });
+
 
 module.exports = router;

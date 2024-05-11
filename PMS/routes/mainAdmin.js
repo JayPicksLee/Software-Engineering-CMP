@@ -7,7 +7,6 @@ function carparksDiv(data2){
   let carparks = carparkModel.getCarparks();
 
   for (const carpark of carparks) {
-    console.log(carpark);
     if (carpark) {
 
      data2.push(carpark);
@@ -22,9 +21,7 @@ function carparksDiv(data2){
 function requestsDiv(data){
   let requests = requestmodel.getRequests();
 
-  console.log(requests);
   for (const request of requests) {
-    console.log(request);
     if (request.approvedStatus == false) {
 
       data.push(request);

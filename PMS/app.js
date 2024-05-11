@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 var crypto = require('crypto');
+var mongoose = require('mongoose');
 
 var login = require('./routes/login');
 var main = require('./routes/main');
@@ -14,6 +15,10 @@ var mainAdmin = require('./routes/mainAdmin');
 var bookings = require('./routes/bookings');
 
 var app = express();
+
+mongoose.connect('mongodb://localhost/userdb')
+  .then(()=> console.log('Connected to database'))
+  .catch((err) => console.log('Error: ${err}'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
