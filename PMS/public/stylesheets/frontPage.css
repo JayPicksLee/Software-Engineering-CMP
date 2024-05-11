@@ -78,7 +78,8 @@ body {
 
   #content input{
     padding: 10px;
-    margin: 25px;
+    margin-left:25px;
+    margin-right:25px;
     border: none;
     border-radius: 10px;
     border: 1px solid #fff;
@@ -110,6 +111,7 @@ a:hover{
   border-radius: 10px;
   border: 1px solid #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  text-align: center;
 }
 
 #content::before{
@@ -119,4 +121,21 @@ a:hover{
   height: 100%;
   border-radius: 10px;
   z-index: -1;
+}
+
+#registerPage {
+  position: relative;
+}
+
+
+h1 {
+
+  margin-top: 20px; 
+  font-size: 2em; 
+  font-weight: bold;
+  text-align: center; 
+  margin-top: 20px; 
+  color: #fff; 
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
