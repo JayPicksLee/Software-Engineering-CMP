@@ -10,7 +10,7 @@ html
    div(id = "above")
     h1="SignUp to PMS"
     div(id = "content")
-       form(action='/register', method= 'POST')
+      form(action='/register', method= 'POST')
           label(for='username')
           input#username(type='text' name='username' placeholder='Username' required='')
           br
@@ -24,8 +24,7 @@ html
           input#phoneNumber(type='text' name='phoneNumber' placeholder='Phone Number' required='')
           br
           input(type='submit' value='Sign Up')
-          br
-          p Click here to return to the 
-            a(href='/') Login Page
           if errorMessage
             p.error= errorMessage
+      p 
+        a(href='/', class = "links") Login Page    

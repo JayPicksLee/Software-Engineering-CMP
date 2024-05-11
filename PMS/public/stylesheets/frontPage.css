@@ -66,11 +66,6 @@ body {
     cursor: pointer;
   }
 
-  input:hover {
-    background-color: rgb(206, 206, 206);
-    border: 1px solid rgb(206, 206, 206);
-  }
-
   input[type="text"],
   input[type="password"] {
     cursor: text; 
@@ -90,6 +85,18 @@ body {
   #content input[type="password"] {
     cursor: text; 
   }
+
+  input:hover {
+    background-color: rgb(206, 206, 206);
+    border: 1px solid rgb(206, 206, 206);
+  }
+
+  #content input:hover {
+    background-color: rgb(206, 206, 206);
+    border: 1px solid rgb(206, 206, 206);
+  }
+
+  
 
 a{
   color:blue;
@@ -139,3 +146,4 @@ h1 {
   letter-spacing: 2px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
+
