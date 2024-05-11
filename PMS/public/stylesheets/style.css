@@ -198,6 +198,75 @@ tbody tr:nth-child(even) {
 }
 
 
+
+.admin_main_content {
+  margin: 20px; 
+  margin-left:15%;
+  display: flex;
+  width: fit-content;
+  background-color: #2e2e2e;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+
+.requests, .carparks {
+  margin-bottom: 40px; 
+}
+
+.requests h2, .carparks h2 {
+  color: #ffffff; 
+  text-decoration: underline;
+  margin-left:4%;
+  font-size: 250%;
+}
+
+.requests ul, .carparks ul {
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+}
+
+.requests li, .carparks li {
+  margin-top: 12px; 
+  margin-left: 4%;
+}
+
+
+button, input[type="submit"] {
+  width:fit-content;
+  padding: 10px;
+  border-radius: 5px;
+  border:none;
+  background-color: #4b4b4b;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 4%;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: #3d3d3d;
+}
+
+.requests{
+  height:100%;
+  width:50%;
+}
+
+
+
+.carparks{
+  height:100%;
+  width:40%;
+  float: right;
+  text-align: left;
+}
+
+#new_car_park{
+  font-weight: bold;
+  margin-right:5%;
+}
+
+
 @media only screen and (max-width: 900px) {
   .nav_logo{
     width: 120px;
