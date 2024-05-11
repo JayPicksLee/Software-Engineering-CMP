@@ -41,9 +41,11 @@ exports.deleteCarpark=async (carparkId)=>{
 
 exports.getCarparkCapacity=async (carparkId)=>{
     try {
-        const id = await Carpark.findOne({carparkId})
-
-        return id.id;
+        const id = await Carpark.findById({carparkId});
+        if (!carpark) {
+            throw new Error("Car park not found");
+        }
+        return carpark.max_capacity;
     } catch (error) {
         throw new Error("Error getting car park capacity: " +error.message);
     }
