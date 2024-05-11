@@ -19,8 +19,13 @@ block content
       ul 
        each request in userRequests
             li #{request.destination} #{request.department}  #{request.arriveDate}  #{request.departDate}
-            button Approve 
-            button Reject
+            form(action='/mainAdmin/approveRequest', method='POST')
+             input(type="hidden", name ="id", value = request._id)
+             button(type = "submit") approve
+             
+            form(action='/mainAdmin/rejectRequest', method='POST')
+             input(type="hidden", name ="id", value = request._id)
+             button(type = "submit") Reject
        else
         li THERE ARE NO VALUES
     div(class = "carparks")
@@ -40,9 +45,11 @@ block content
             
       ul
        each carpark in carparks
-         li Name: #{carpark.name}  Capacity: #{carpark.max_capacity} Avaiable: #{carpark.available} Occupied: #{carpark.occupied} Reserved: #{carpark.reserved}
-         form(action='/', method='DELETE')
-         input(type="submit", value = "DELETE LOT")
+         li Name: #{carpark._id} #{carpark.name}  Capacity: #{carpark.max_capacity} Avaiable: #{carpark.available} Occupied: #{carpark.occupied} Reserved: #{carpark.reserved}
+           form(action='/mainAdmin/deleteLot', method='POST')
+             input(type="hidden", name ="id", value = carpark._id)
+             button(type = "submit") DELETE
+
          button Block space 
          
       script(src="/javascripts/adminClient.js")

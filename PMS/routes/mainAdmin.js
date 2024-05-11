@@ -3,6 +3,7 @@ var router = express.Router();
 const requestmodel = require('../model/requests.js');
 const carparkModel = require('../model/carPark.js');
 
+
 router.get
 ('/', 
   async function(req, res, next) {
@@ -28,13 +29,49 @@ router.post
 
 });
 
-router.delete(
-  '/', 
-  (req, res)=>{
-    const id = parseInt(req.body.id)
-    data2 = data2.filter(lot => lot.carparkId !== id);
+router.post
+('/approveRequest', 
+(req, res)=>
+  {
+    const userid = {_id: req.body.id};
+    try {
+      console.log(userid);
+      
+    } catch (error) {
+      
+    }
 
-    res.redirect('/mainAdmin');
-})
+});
 
+router.post
+('/rejectRequest', 
+(req, res)=>
+  {
+    const userid = {_id: req.body.id};
+    try {
+      console.log(userid);
+      
+    } catch (error) {
+      
+    }
+
+});
+
+
+router.post
+('/deleteLot', 
+(req, res)=>
+  {
+    const userid = {_id: req.body.id};
+    try {
+      console.log(userid);
+
+      carparkModel.deleteCarpark(userid);
+
+      res.redirect("/mainAdmin");
+    } catch (error) {
+      
+    }
+
+});
 module.exports = router;

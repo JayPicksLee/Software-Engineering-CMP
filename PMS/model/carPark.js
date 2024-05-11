@@ -22,6 +22,19 @@ exports.getCarparks=async ()=>{
     return all;
 }
 
+exports.deleteCarpark=async (carparkId)=>{
+    try {
+        console.log(carparkId);
+        await Carpark.findByIdAndDelete(carparkId);
+        console.log("Deleting car park");
+        
+        
+    } catch (error) {
+        console.log("DIDNT DLEETE");
+    }
+    
+}
+
 exports.getCarparkCapacity=async (carparkId)=>{
     const id = await Carpark.findOne({carparkId})
 
