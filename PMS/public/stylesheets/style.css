@@ -183,6 +183,21 @@ iframe{
   margin-bottom: 5px;
 }
 
+thead {
+  background-color: #525252;
+  text-align: center;
+}
+
+th, td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #0000003f;
+}
+
+
 @media only screen and (max-width: 900px) {
   .nav_logo{
     width: 120px;

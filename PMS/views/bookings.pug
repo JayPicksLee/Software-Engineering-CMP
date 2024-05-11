@@ -17,8 +17,18 @@ block content
   main
     section(class="booking_content")
       div(id ="bookings_display")
-       ul(id = "bookings_list")
-        each request in userRequests
-            li #{request.destination} #{request.department}  #{request.arriveDate}  #{request.departDate}
-        else 
-          li THERE ARE NO VALUES
+       if userRequests.length > 0
+        table
+          thead
+            tr
+              th Destination
+              th Department
+              th Arrival Date
+              th Departure Date
+          tbody
+            each request in userRequests
+              tr
+                td= request.destination
+                td= request.department
+                td= request.arriveDate
+                td= request.departDate
