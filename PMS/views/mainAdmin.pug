@@ -21,7 +21,7 @@ block content
             li #{request.destination} #{request.department}  #{request.arriveDate}  #{request.departDate}
             form(action='/mainAdmin/approveRequest', method='POST')
              input(type="hidden", name ="id", value = request._id)
-             button(type = "submit") approve
+             button(type = "submit") Approve
              
             form(action='/mainAdmin/rejectRequest', method='POST')
              input(type="hidden", name ="id", value = request._id)

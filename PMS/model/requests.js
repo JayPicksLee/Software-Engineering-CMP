@@ -27,6 +27,18 @@ exports.getRequests=async ()=>{
     return all;
 }
 
+exports.rejectRequest=async (requestId)=>{
+    try {
+        
+        await Request.findByIdAndDelete(requestId);
+        
+    } catch (error) {
+        console.log("DIDNT DLEETE");
+    }
+    
+}
+
+
 exports.getRequestsUser=async (userID)=>{
     let all = await Request.find({userID});
     console.log("Finding requests for ...." + userID);

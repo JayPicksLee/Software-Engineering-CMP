@@ -3,7 +3,6 @@ var router = express.Router();
 const requestmodel = require('../model/requests.js');
 const carparkModel = require('../model/carPark.js');
 
-
 router.get
 ('/', 
   async function(req, res, next) {
@@ -51,6 +50,9 @@ router.post
     try {
       console.log(userid);
       
+      requestmodel.rejectRequest(userid);
+
+      res.redirect("/mainAdmin");
     } catch (error) {
       
     }
