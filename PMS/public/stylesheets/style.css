@@ -266,6 +266,15 @@ button:hover, input[type="submit"]:hover {
   margin-right:5%;
 }
 
+.approve_reject{
+  display: inline-block;
+  margin-left: 4%;
+}
+
+.park_buttons{
+  display: inline-block;
+  margin-left: 4%;
+}
 
 @media only screen and (max-width: 900px) {
   .nav_logo{
