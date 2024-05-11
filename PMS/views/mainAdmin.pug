@@ -13,7 +13,7 @@ block content
         li  
          a(class = "nav_option", href='bookings') Help
   main
-  section(class = "main_content")
+  section(class = "admin_main_content")
     div(class ="requests")
       h2 Manage requests
       ul 
@@ -25,7 +25,7 @@ block content
         li THERE ARE NO VALUES
     div(class = "carparks")
       h2 Car park status
-      button(onclick="showNewParkingDialog()") Create new parking lot
+        button(onclick="showNewParkingDialog()", id = "new_car_park") Create new parking lot
       dialog(id = "newParking-dialog")
           h2 Create new parking lot 
           form(action='/mainAdmin', method= 'POST') 
