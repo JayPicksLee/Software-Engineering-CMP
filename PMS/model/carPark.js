@@ -17,9 +17,13 @@ const carParkSchema = new Schema({
 const Carpark = mongoose.model("Carpark", carParkSchema)
 
 exports.getCarparks=async ()=>{
-    const all = await Carpark.find({});
-    console.log("Finding car parks");
-    return all;
+    try {
+        const all = await Carpark.find({});
+        console.log("Finding car parks");
+        return all;
+    } catch (error) {
+        throw new Error("Error getting car parks: " +error.message);
+    }
 }
 
 exports.deleteCarpark=async (carparkId)=>{
@@ -30,15 +34,19 @@ exports.deleteCarpark=async (carparkId)=>{
         
         
     } catch (error) {
-        console.log("DIDNT DLEETE");
+        console.log("Error deleting car park");
     }
     
 }
 
 exports.getCarparkCapacity=async (carparkId)=>{
-    const id = await Carpark.findOne({carparkId})
+    try {
+        const id = await Carpark.findOne({carparkId})
 
-    return id.id;
+        return id.id;
+    } catch (error) {
+        throw new Error("Error getting car park capacity: " +error.message);
+    }
 }
 
 exports.createParkingLot = async (name, max_capacity) => {
@@ -47,15 +55,31 @@ exports.createParkingLot = async (name, max_capacity) => {
         const reserved = 0;
         const occupied = 0;
 
-        const newCarpark = new Carpark({name: name,
+        const newCarpark = new Carpark({
+            name: name,
             max_capacity: max_capacity, 
             available: max_capacity,
             reserved: reserved,
-            occupied: occupied, });
+            occupied: occupied });
               
        const savedRequest = await newCarpark.save();
         
     } catch (error) {
         throw new Error('Error saving request data: ' + error.message);
+    }
+}
+
+exports.updateAvailableSpaces = async (carparkId, newAvailableSpaces) => {
+    try {
+        const carpark = await Carpark.findById(carparkId);
+        if (!carpark) {
+            throw new Error("Could not find car park");
+        }
+
+        carpark.available = newAvailableSpaces;
+        await carpark.save();
+        console.log("Car park ${carparkId} now has ${newAvailableSpaces} spaces available");
+    } catch (error) {
+        throw new Error("Error updating available spaces: " +error.message);
     }
 }
