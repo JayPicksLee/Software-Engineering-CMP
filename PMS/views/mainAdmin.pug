@@ -17,8 +17,8 @@ block content
     div(class ="requests")
       h2 Manage requests
       ul 
-         each request in requests
-            li= "Department: " + request.department + " Destination: " + request.destination + " Arrival date and time: " + request.arriveDate + " Departure date and time: " + request.departDate
+       each request in userRequests
+            li #{request.destination} #{request.department}  #{request.arriveDate}  #{request.departDate}
             button Approve 
             button Reject
 

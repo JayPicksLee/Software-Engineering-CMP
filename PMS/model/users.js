@@ -99,31 +99,16 @@ exports.checkLoginDetails = async (username, password)=>{
     return null;
 }
 
-
-function generateRandomId(length) 
-{
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let randomId = '';
-    for (let i = 0; i < length; i++) 
-    {
-        randomId += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    return randomId;
-}
-
 exports.signUpUser = async (username, password, email, phoneNumber) => 
     {
     try 
     {
-        const randomId = generateRandomId(8);
         const isAdmin = false;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const phoneRegex = /^\d{11}$/;
 
         const newUser = new User({accountLevel: isAdmin, username: username, password: password, email: email, phoneNumber: phoneNumber});
         const savedUser = await newUser.save();
-
-        console.log("Generated user id: ", randomId);
 
         // const userExists = userInfo.some(user => user.username === username);
         // if (userExists) 
@@ -143,13 +128,6 @@ exports.signUpUser = async (username, password, email, phoneNumber) =>
         //     throw new Error('Invalid phone number format, ensure it is 11 digits long, it may need to start with a 0');
         // }
     
-
-        // userInfo.push({accountLevel, randomId, username, password, email, phoneNumber});
-        // console.log("Pushed ", accountLevel, " ", randomId, " ", username, " ", password, " ", email, " ", phoneNumber);
-
-        
-        // fs.writeFileSync('./userdb.json', JSON.stringify(userInfo));
-
     } 
     catch (error) 
     {

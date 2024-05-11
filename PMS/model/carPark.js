@@ -1,8 +1,25 @@
 const fs = require('fs');
 const carParksInfo = JSON.parse(fs.readFileSync('./carParks.json', 'utf-8'));
 
-exports.getCarparks=()=>{
-    return carParksInfo;
+const mongoose = require('mongoose');
+
+const Schema=  mongoose.Schema;
+
+const carParkSchema = new Schema({
+    name: String,
+    max_capacity: BigInt,
+    available: BigInt,
+    reserved: BigInt,
+    occupied: BigInt,
+
+});
+
+const Carpark = mongoose.model("Carpark", carParkSchema)
+
+exports.getCarparks=async ()=>{
+    const all = await Request.find({});
+
+    return all;
 }
 
 exports.getCarparkCapacity=(carparkId)=>{

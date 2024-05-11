@@ -35,14 +35,13 @@ function requestsDiv(data){
 
 router.get
 ('/', 
-function(req, res, next) {
-  let data = [];
-  let data2 = [];
+  async function(req, res, next) {
 
-  requestsDiv(data);
-  carparksDiv(data2);
+  // requestsDiv(data);
+  let request = await requestmodel.getRequests(req.session.userID)
 
-  res.render("mainAdmin", {requests: data, carparks:data2});
+  res.render("mainAdmin", {userRequests: request});
+
 });
 
 router.post

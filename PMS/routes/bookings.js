@@ -4,22 +4,15 @@ const requestmodel = require('../model/requests.js');
 
 router.get(
   '/', 
-function(req, res, next) {
+  async function(req, res) {
+    try{
+      let request = await requestmodel.getRequests(req.session.userID)
 
-  let data = [];
-
-  let requests = requestmodel.getRequests();
-  for (const request of requests) {
-    
-    if (request.userID === req.session.userID) {
-
-      data.push(request);
-
-    }else{
-      res.render('bookings', { error: true, message: "Couldn't post requests" });
+      res.render("bookings", {userRequests: request});
+    }catch(err){
+      res.status(404).send('bookings list failed')
     }
-  }
-  res.render("bookings", {requests: data});
+  
 });
 
 module.exports = router;

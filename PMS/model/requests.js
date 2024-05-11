@@ -16,17 +16,24 @@ const requestSchema = new Schema({
 
 const Request = mongoose.model("Request", requestSchema)
 
-exports.getRequests=()=>{
-    return requestInfo;
-    }
+exports.getRequests=async ()=>{
+    const all = await Request.find({});
 
+    return all;
+}
+
+exports.getRequests=async (userID)=>{
+
+    const all = await Request.find({userID});
+    
+    return all;
+    }
 exports.createRequest = async (userID,department, destination, arriveDate, departDate) => {
     try {
         var approvedStatus = false;
         requestInfo.push({ userID, department, destination, arriveDate, departDate, approvedStatus });
 
         const newRequest = new Request({userID: userID, department: department, destination: destination, arriveDate: arriveDate, departDate: departDate, approvedStatus: approvedStatus});
-        console.log(newRequest);
         const savedRequest = await newRequest.save();
 
         fs.writeFileSync('./requestdb.json', JSON.stringify(requestInfo));

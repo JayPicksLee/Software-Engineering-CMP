@@ -18,6 +18,7 @@ block content
     section(class="booking_content")
       div(id ="bookings_display")
        ul(id = "bookings_list")
-        each request in requests
-            li(id = "item")= "Department: " + request.department + " Destination: " + request.destination + " Arrival date and time: " + request.arriveDate + " Departure date and time: " + request.departDate + "Current approval status: " + request.approvedStatus
-        
+        each request in userRequests
+            li #{request.destination} #{request.department}  #{request.arriveDate}  #{request.departDate}
+        else 
+          li THERE ARE NO VALUES
