@@ -33,9 +33,9 @@ router.post
 ('/approveRequest', 
   async (req, res)=>
   {
-    const requestId = {_id: req.body.id};
+    let requestId = {_id: req.body.id};
     console.log(requestId);
-    requestModel.approveRequest(requestId);
+    requestModel.createBookingFromRequest(requestId);
 
     res.redirect('/mainAdmin');
 
@@ -49,7 +49,7 @@ router.post
     try {
       console.log(requestId);
       
-      requestModel.rejectRequest(requestId);
+      requestModel.deleteRequest(requestId);
 
       res.redirect("/mainAdmin");
     } catch (error) {

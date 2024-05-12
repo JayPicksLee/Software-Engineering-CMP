@@ -31,9 +31,9 @@ exports.getRequests=async ()=>{
 }
 
 
-exports.approveRequest=async (requestId)=>{
+exports.createBookingFromRequest=async (requestId)=>{
     try {
-        
+        console.log("ID APPROVING: " + requestId);
         let request = await Request.findById(requestId);
         console.log(request)
         bookingsModel.createBooking(request);
@@ -45,7 +45,7 @@ exports.approveRequest=async (requestId)=>{
     
 }
 
-exports.rejectRequest=async (requestId)=>{
+exports.deleteRequest=async (requestId)=>{
     try {
         
         await Request.findByIdAndDelete(requestId);
@@ -78,12 +78,13 @@ exports.createRequest = async (userID,department, destination, arriveDate, depar
         var currentDateCreated = new Date();
         console.log(currentDateCreated);
 
-        const newRequest = new Request({userID: userID,
+        const newRequest = new Request({
+             userID: userID,
              department: department, 
              destination: destination,
-              arriveDate: arriveDate,
-               departDate: departDate, 
-               approvedStatus: approvedStatus,
+             arriveDate: arriveDate,
+             departDate: departDate, 
+             approvedStatus: approvedStatus,
             dateCreated: currentDateCreated});
                
         const savedRequest = await newRequest.save();
