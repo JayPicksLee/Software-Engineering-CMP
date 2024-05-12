@@ -60,21 +60,26 @@ block content
             button(onclick="closeNewParkingDialog()", type ="button") Cancel
             
       ul
+       
        each carpark in carparks
+         div(class = "car_park_item")
 
-         li Name: #{carpark._id} #{carpark.name}  Capacity: #{carpark.max_capacity} Avaiable: #{carpark.available} Occupied: #{carpark.occupied} Reserved: #{carpark.reserved}
-         form(action='/mainAdmin/deleteLot', method='POST', class = "park_buttons")
-         input(type="hidden", name ="id", value = carpark._id)
-         button(type = "submit") Delete lot
+          li 
+            img(id = "parking_lot_img", src='/images/ParkingLot.jpg' alt='Parking Lot Image') 
+            |  Name: #{carpark._id} #{carpark.name}  Capacity: #{carpark.max_capacity} Avaiable: #{carpark.available} Occupied: #{carpark.occupied} Reserved: #{carpark.reserved}
+          div(car_park_buttons)
+            form(action='/mainAdmin/deleteLot', method='POST', class = "park_buttons")
+            input(type="hidden", name ="id", value = carpark._id)
+            button(type = "submit") Delete lot
 
-           form(action='/mainAdmin/reserveSpace', method='POST', class = "park_buttons")
-             input(type="hidden", name ="id", value = carpark._id)
-             button(type = "submit") Reserve Space
+              form(action='/mainAdmin/reserveSpace', method='POST', class = "park_buttons")
+                input(type="hidden", name ="id", value = carpark._id)
+                button(type = "submit") Reserve Space
 
-           form(action='/mainAdmin/blockSpace', method='POST', class = "park_buttons")
-             input(type="hidden", name ="id", value = carpark._id)
-             button(type = "submit") Block space
-    
+              form(action='/mainAdmin/blockSpace', method='POST', class = "park_buttons")
+                input(type="hidden", name ="id", value = carpark._id)
+                button(type = "submit") Block space
+      
 
          
       script(src="/javascripts/adminClient.js")

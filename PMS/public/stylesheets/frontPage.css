@@ -1,3 +1,5 @@
+/* FrontPage/General CSS */
+
 *{
     font: 14px "Gotham", Helvetica, Arial, sans-serif;
     box-sizing: border-box;
@@ -71,6 +73,8 @@ body {
     cursor: text; 
   }
 
+  /* Register Page CSS */
+
   #content input{
     padding: 10px;
     margin-left:25px;
@@ -106,8 +110,6 @@ a{
 a:hover{
   text-decoration: underline;
 }
-
-
 
 #content{
   width: 300px;

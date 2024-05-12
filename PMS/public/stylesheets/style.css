@@ -210,8 +210,7 @@ tbody tr:nth-child(even) {
 /* MainAdmin CSS */
 
 .admin_main_content {
-  margin: 20px; 
-  margin-left:15%;
+  margin: 20px ; 
   display: flex;
   width: fit-content;
   background-color: #2e2e2e;
@@ -293,7 +292,44 @@ button:hover, input[type="submit"]:hover {
   background-color: rgba(255, 0, 0, 0.2); 
 }
 
+#parking_lot_img{
+  width: 100px; 
+  height: auto;
+}
 
+
+
+.carparks {
+  padding: 20px;
+}
+
+.car_park_item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+
+}
+
+.car_park_item img {
+  width: 100px; /* Adjust the width as needed */
+  height: auto;
+  float: left;
+}
+
+.car_park_item li {
+  margin-bottom: 5px;
+}
+
+.car_park_item form {
+  margin-top: 10px;
+}
+
+.car_park_item:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 
 @media only screen and (max-width: 900px) {
