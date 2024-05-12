@@ -5,7 +5,9 @@ block content
     div(class="nav_container")
       div(class= "nav_logo")
         img(src="/images/UEALogo.png", alt="", id="logo")
+
       ul(class="nav_list")
+
         li 
          a(class = "nav_option", href='main') Home
         li 
@@ -14,9 +16,13 @@ block content
          a(class = "nav_option", href='bookings')
         li  
          a(class = "nav_option", href='bookings')
+         
   main
     section(class="booking_content")
-      div(id ="bookings_display")
+
+      div(id ="requests_display")
+      h1 My requests
+
        if userRequests.length > 0
         table
           thead
@@ -25,6 +31,7 @@ block content
               th Department
               th Arrival Date
               th Departure Date
+              th Current status
           tbody
             each request in userRequests
               tr
@@ -32,3 +39,22 @@ block content
                 td= request.department
                 td= request.arriveDate
                 td= request.departDate
+                td= request.approvedStatus
+
+      div(id ="bookings_display")
+      h1 My Bookings
+       if userBookings.length > 0
+        table
+          thead
+            tr
+              th Destination
+              th Department
+              th Arrival Date
+              th Departure Date
+          tbody
+            each booking in userBookings
+              tr
+                td= booking.department
+                td= booking.destination
+                td= booking.arriveDate
+                td= booking.departDate

@@ -36,6 +36,7 @@ router.post
     let requestId = {_id: req.body.id};
     console.log(requestId);
     requestModel.createBookingFromRequest(requestId);
+    requestModel.deleteRequest(requestId);
 
     res.redirect('/mainAdmin');
 

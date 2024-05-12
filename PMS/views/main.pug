@@ -5,6 +5,7 @@ block content
     div(class="nav_container")
       div(class= "nav_logo")
         img(src="/images/UEALogo.png", alt="", id="logo")
+
       ul(class="nav_list")
         li 
          a(class = "nav_option", href='main') Home
@@ -14,11 +15,13 @@ block content
          a(class = "nav_option", href='bookings') ??
         li  
          a(class = "nav_option", href='bookings') ??
+         
   main
     section(class = "main_content")
      div(class ="sideRequest")
       h3 Send parking request?
-      form(action='/main', method= 'POST')
+      
+      form(action='/main/createRequest', method= 'POST')
         label(for="departmentsSelect") Select department
         select(name="departmentsSelect", id="departmentsSelect")
           optgroup() 
@@ -77,5 +80,6 @@ block content
         input(type="datetime-local", value="Departure date", id = "departureSelect", name="departureSelect") 
         br
         input(type="submit", name="Submit Request", value = "Submit request")
+
      div(class = "sideMap")
       iframe(id = "map", src="https://www.google.com/maps/d/u/0/embed?mid=19Y2uYDjzPjg_DmreQQnEMcAjHySUdUI&ehbc=2E312F&noprof=1")

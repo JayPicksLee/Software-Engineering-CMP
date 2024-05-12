@@ -14,10 +14,12 @@ router.get(
   res.render("requestedParking", {title: 'Main page'});
 });
 
-
+//
 router.post(
-  '/', (req, res, next)=>
+  '/createRequest', 
+  (req, res, next)=>
   {
+    //Getting inputs from fields
     const userID = req.session.userID;
     const departmentsSelect = req.body.departmentsSelect;
     const buildingsSelect = req.body.buildingsSelect;

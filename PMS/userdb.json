@@ -1,1 +1,22 @@
-[{"accountLevel":false,"randomId":"WXNflSjB","username":"user1","password":"password","email":"user1@gmail.com","phoneNumber":"07583496410"},{"accountLevel": true,"randomId":"Spe89qm7","username":"admin1","password":"password","email":"admin@gmail.com","phoneNumber":"07395847120"}]
+[{
+  "_id": {
+    "$oid": "6640efca461895f25f8bfd3a"
+  },
+  "accountLevel": false,
+  "username": "user1",
+  "password": "password",
+  "email": "user1@gmail.com",
+  "phoneNumber": "123456789",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6640efe9095bc2622cbe254c"
+  },
+  "accountLevel": true,
+  "username": "admin1",
+  "password": "password",
+  "email": "admin1@gmail.com",
+  "phoneNumber": "123456789",
+  "__v": 0
+}]

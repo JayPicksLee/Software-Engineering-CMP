@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Request = require('./requests');
 
 const Schema = mongoose.Schema;
 
@@ -32,4 +31,9 @@ exports.createBooking = async (requestObject) => {
     } catch (error) {
         throw new Error('Error saving request data: ' + error.message);
     }
+}
+
+exports.getBookingsByUserId=async (userID)=>{
+    let all = await Booking.find({userID});
+    return all;
 }

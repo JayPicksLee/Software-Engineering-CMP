@@ -17,15 +17,17 @@ block content
    section(class = "admin_main_content")
     div(class ="requests")
       h2 Manage requests
-
       ul 
        each request in userRequests
-            li Request made: #{request.dateCreated} Made by: #{request.userID} 
+
+            li Request made: #{request.dateCreated} UserID: #{request.userID} 
               button(onclick="showRequestDialog(this.id)", class = "show-request-dialog", id = `${request._id}`) Show more info
 
               dialog(id = `request-dialog-${request._id}`, class= "request-dialogs")
+
                 h1 Information
-                li Request made: #{request.dateCreated} Made by: #{request.userID} Destination: #{request.destination} Department: #{request.department} Arrival date: #{request.arriveDate} Departure date: #{request.departDate}
+                li Request made: #{request.dateCreated} UserID: #{request.userID} Destination: #{request.destination} Department: #{request.department} Arrival date: #{request.arriveDate} Departure date: #{request.departDate}
+
                 form(action='/mainAdmin/approveRequest', method='POST', class = "approve_reject")
 
                   input(type="hidden", name ="id", value = request._id)
@@ -59,13 +61,16 @@ block content
             
       ul
        each carpark in carparks
+       
          li Name: #{carpark._id} #{carpark.name}  Capacity: #{carpark.max_capacity} Avaiable: #{carpark.available} Occupied: #{carpark.occupied} Reserved: #{carpark.reserved}
            form(action='/mainAdmin/deleteLot', method='POST')
              input(type="hidden", name ="id", value = carpark._id)
              button(type = "submit", class = "park_buttons") Delete lot
+
            form(action='/mainAdmin/reserveSpace', method='POST')
              input(type="hidden", name ="id", value = carpark._id)
              button(type = "submit", class = "park_buttons") Reserve Space
+
            form(action='/mainAdmin/blockSpace', method='POST')
              input(type="hidden", name ="id", value = carpark._id)
              button(type = "submit", class = "park_buttons") Block space

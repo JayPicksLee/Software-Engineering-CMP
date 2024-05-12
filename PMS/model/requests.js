@@ -47,7 +47,7 @@ exports.createBookingFromRequest=async (requestId)=>{
 
 exports.deleteRequest=async (requestId)=>{
     try {
-        
+        // console.log("DELETING:" + requestId);
         await Request.findByIdAndDelete(requestId);
         
     } catch (error) {
