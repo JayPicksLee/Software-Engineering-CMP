@@ -244,7 +244,7 @@ button, input[type="submit"] {
 }
 
 button:hover, input[type="submit"]:hover {
-  background-color: #3d3d3d;
+  background-color: #3b3b3b;
 }
 
 .requests{
@@ -267,14 +267,16 @@ button:hover, input[type="submit"]:hover {
 }
 
 .approve_reject{
-  display: inline-block;
+  display: contents;
   margin-left: 4%;
 }
 
 .park_buttons{
-  display: inline-block;
-  margin-left: 4%;
+  margin-bottom: 10%;
+  display: contents;
+  width: 30%;
 }
+
 
 @media only screen and (max-width: 900px) {
   .nav_logo{
