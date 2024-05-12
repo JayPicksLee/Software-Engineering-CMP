@@ -28,7 +28,7 @@ block content
                 h1 Information
                 li Request made: #{request.dateCreated} UserID: #{request.userID} Destination: #{request.destination} Department: #{request.department} Arrival date: #{request.arriveDate} Departure date: #{request.departDate}
 
-                form(action='/mainAdmin/approveRequest', method='POST', class = "approve_reject")
+                form(action='/mainAdmin/approveRequest', method='POST', class = "approve_reject", id = "approve")
 
                   input(type="hidden", name ="id", value = request._id)
                   button(type = "submit") Approve
@@ -37,9 +37,9 @@ block content
                     each carpark in carparks
                       option #{carpark.name}
 
-                  form(action='/mainAdmin/rejectRequest', method='POST', class = "approve_reject")
-                    input(type="hidden", name ="id", value = request._id)
-                    button(type = "submit") Reject
+                form(action='/mainAdmin/rejectRequest', method='POST', class = "approve_reject", id = "reject")
+                  input(type="hidden", name ="id", value = request._id)
+                  button(type = "submit") Reject
        else
         li NO REQUESTS
 
