@@ -56,38 +56,46 @@ exports.getUserStatus=async (username)=>{
 }
 
 exports.checkExists = async (username)=>{
-    // var check = false;
-    let user = await User.findOne({username: username})
-    let check = false;
+    try {
+        
+        // var check = false;
+        let user = await User.findOne({username: username})
+        let check = false;
 
-    if(user !== null){
-        check = true;
-        return check
-    }else{
-        return check;
+        if(user !== null){
+            check = true;
+            return check
+        }else{
+            return check;
+        }
+
+        // for (var i=0; i < userInfo.length; i++)
+        // {
+        //     if (userInfo[i].username == username && userInfo[i].password == password)
+        //     {
+        //         check = true;
+        //     }
+        // }   
+        return null;
+        } catch (error) {
+            throw new Error("Error finding username: " +error.message);
     }
-
-    // for (var i=0; i < userInfo.length; i++)
-    // {
-    //     if (userInfo[i].username == username && userInfo[i].password == password)
-    //     {
-    //         check = true;
-    //     }
-    // }   
-    return null;
-}
+};
 
 exports.checkLoginDetails = async (username, password)=>{
     // var check = false;
-    let user = await User.findOne({username: username})
-    let check = false;
+    try {
+        
+        let user = await User.findOne({username: username})
+        let check = false;
 
-    if(user.password == password){
-        check = true;
-        return check
-    }else{
-        return check;
-    }
+        if(user.password == password){
+            check = true;
+            return check
+        }
+        else{
+            return check;
+        }
 
     // for (var i=0; i < userInfo.length; i++)
     // {
@@ -97,7 +105,10 @@ exports.checkLoginDetails = async (username, password)=>{
     //     }
     // }   
     return null;
-}
+    } catch (error) {
+        throw new Error("Error checking login details: " +error.message);
+    }
+};
 
 exports.signUpUser = async (username, password, email, phoneNumber) => 
     {
