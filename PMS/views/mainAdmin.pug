@@ -19,6 +19,7 @@ block content
       h2 Manage requests
       ul 
        each request in userRequests
+        div(class = "manage_request_item")
 
             li(class = "list_item") Request made: #{request.dateCreated} UserID: #{request.userID} 
               button(onclick="showRequestDialog(this.id)", class = "show-request-dialog", id = `${request._id}`) Show more info

@@ -306,6 +306,7 @@ button:hover, input[type="submit"]:hover {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .car_park_item img {
