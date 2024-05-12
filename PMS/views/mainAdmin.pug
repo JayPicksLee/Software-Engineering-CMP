@@ -49,7 +49,7 @@ block content
       dialog(id = "newParking-dialog")
           h2 Create new parking lot 
           
-          form(action='/mainAdmin', method= 'POST') 
+          form(action='/mainAdmin/CreateNewParkingLot', method= 'POST') 
             label(for="newLotName") Name
             input(type="text", name ="newLotName")
 
@@ -61,7 +61,7 @@ block content
             
       ul
        each carpark in carparks
-       
+
          li Name: #{carpark._id} #{carpark.name}  Capacity: #{carpark.max_capacity} Avaiable: #{carpark.available} Occupied: #{carpark.occupied} Reserved: #{carpark.reserved}
            form(action='/mainAdmin/deleteLot', method='POST')
              input(type="hidden", name ="id", value = carpark._id)

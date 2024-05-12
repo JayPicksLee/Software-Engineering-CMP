@@ -3,11 +3,11 @@ var router = express.Router();
 const requestModel = require('../model/requests.js');
 const carparkModel = require('../model/carPark.js');
 
-
+//GET METHOD : Rendering the page with the requests and carparks stored in the database with methods from the models.
 router.get
 ('/', 
-  async function(req, res, next) {
-
+  async function(req, res) {
+  //Getting the current requests and carparks in the mongodb and rendering them on the screen
   let request = await requestModel.getRequests();
   
   let carpark = await carparkModel.getCarparks();
@@ -16,10 +16,13 @@ router.get
 
 });
 
+
+//POST METHOD CreateNewParkingLot: Creating new parking lot based off input fields in createNewParkingLot dialog box.
 router.post
-('/', 
+('/CreateNewParkingLot', 
 (req, res)=>
   {
+
     const name = req.body.newLotName;
     const max_capacity = req.body.newLotMaxCapacity;
 
@@ -29,26 +32,29 @@ router.post
 
 });
 
+//POST METHOD approveRequest: Creating booking data in database based off requests data and attributes, and then deleting that request. Thus approving the request.
 router.post
 ('/approveRequest', 
   async (req, res)=>
   {
     let requestId = {_id: req.body.id};
-    console.log(requestId);
-    requestModel.createBookingFromRequest(requestId);
-    requestModel.deleteRequest(requestId);
+    try {
+      requestModel.createBookingFromRequest(requestId);
 
-    res.redirect('/mainAdmin');
+      requestModel.deleteRequest(requestId);
+      res.redirect('/mainAdmin');
+    } catch (error) {
+      
+    }
 
 });
-
+//POST METHOD rejectRequest: Deleting request upon button/form press, thus rejecting the request.
 router.post
 ('/rejectRequest', 
 (req, res)=>
   {
     const requestId = {_id: req.body.id};
     try {
-      console.log(requestId);
       
       requestModel.deleteRequest(requestId);
 
@@ -59,14 +65,13 @@ router.post
 
 });
 
-
+//POST METHOD deleteLot: Deleting lot upon button/form press from the database.
 router.post
 ('/deleteLot', 
 (req, res)=>
   {
     const carparkId = {_id: req.body.id};
     try {
-      console.log(carparkId);
 
       carparkModel.deleteCarpark(carparkId);
 

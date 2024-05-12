@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const usermodel = require('../model/users.js');
 
-/* GET home page. */
+//GET METHOD: Rendering login page upon site start up
 router.get(
     '/', 
     function(req, res, next) {
@@ -11,7 +11,7 @@ router.get(
   
 });
 
-//Handling logging in
+//POST METHOD login: Logging in the user by checking if the user first exists, and then checking the users login details (username, password). The users account level is then checked in order to direct them to the correct page.
 router.post(
   '/login', 
   async (req, res) => {
