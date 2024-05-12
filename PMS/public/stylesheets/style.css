@@ -1,3 +1,5 @@
+/* General CSS */
+
 body {
   font: 14px "Gotham", Helvetica, Arial, sans-serif;
   background-color: #333;
@@ -30,6 +32,8 @@ iframe{
   width: 50%;
   height: 100vh;
 }
+
+/* Navigation Bar CSS */
 
 .nav{
   padding-left: 15px;
@@ -97,6 +101,8 @@ iframe{
   transition-property: width, left;
 }
 
+/* Home Page CSS */
+
 .main_content{
   display: flex;
   
@@ -150,6 +156,8 @@ iframe{
   margin-left: 4%;
 }
 
+/* Map Page CSS */
+
 #parkinglot{
   display: block;
   margin-left: auto;
@@ -161,6 +169,8 @@ iframe{
 .center{
   text-align: center;
 }
+
+/* Bookings CSS */
 
 .booking_content {
   width: fit-content;
@@ -197,7 +207,7 @@ tbody tr:nth-child(even) {
   background-color: #0000003f;
 }
 
-
+/* MainAdmin CSS */
 
 .admin_main_content {
   margin: 20px; 
@@ -252,8 +262,6 @@ button:hover, input[type="submit"]:hover {
   width:50%;
 }
 
-
-
 .carparks{
   height:100%;
   width:40%;
@@ -278,12 +286,15 @@ button:hover, input[type="submit"]:hover {
 }
 
 #approve button[type="submit"]:hover {
-  background-color: rgba(0, 128, 0, 0.5); /
+  background-color: rgba(0, 128, 0, 0.5); 
 }
 
 #reject button[type="submit"]:hover {
   background-color: rgba(255, 0, 0, 0.2); 
 }
+
+
+
 
 @media only screen and (max-width: 900px) {
   .nav_logo{
