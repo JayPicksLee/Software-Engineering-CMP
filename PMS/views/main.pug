@@ -12,11 +12,9 @@ block content
         li 
          a(class = "nav_option", href='bookings') Bookings
         li 
-         a(class = "nav_option", href='bookings') ??
+         a(class = "nav_option", href='account') Account
         li  
-         a(class = "nav_option", href='bookings') ??
-        form(action='/main/logout', METHOD = 'POST')
-          input(type="submit", name="logout", value = "Logout")
+         a(class = "nav_option", href='help') help
   main
     section(class = "main_content")
      div(class ="sideRequest")
@@ -84,3 +82,5 @@ block content
 
      div(class = "sideMap")
       iframe(id = "map", src="https://www.google.com/maps/d/u/0/embed?mid=19Y2uYDjzPjg_DmreQQnEMcAjHySUdUI&ehbc=2E312F&noprof=1")
+  form(action='/main/logout', METHOD = 'POST', id = "logout_button")
+    input(type="submit", name="logout", value = "Logout", id = "logout_input")

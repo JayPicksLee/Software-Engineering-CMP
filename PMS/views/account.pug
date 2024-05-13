@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+  nav(class="nav")
+    div(class="nav_container")
+      div(class= "nav_logo")
+        img(src="/images/UEALogo.png", alt="", id="logo")
+      ul(class="nav_list")
+        li 
+         a(class = "nav_option", href='/main') Home
+        li 
+         a(class = "nav_option", href='/bookings') Bookings
+        li 
+         a(class = "nav_option", href='account') Account
+        li  
+         a(class = "nav_option", href='help') Help
+  main
+    h1.center account info page
