@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 const bcrypt = require("bcrypt");
 
+
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -9,7 +10,6 @@ const UserSchema = new Schema({
     password: String,
     email: String,
     phoneNumber: String,
-
 });
 
 const User = mongoose.model("User", UserSchema)
@@ -27,30 +27,12 @@ exports.getUser= async (username)=>{
 }
 
 exports.getUserID=async (username)=>{
-
-    // for(let i = 0; i< userInfo.length;i++)
-    // {
-    //     if((userInfo[i].username === username))
-    //     {
-    //         return userInfo[i].randomId;
-    //     }
-    // }
-
     const id = await User.findOne({username: username})
 
     return id.id;
 }
 
 exports.getUserStatus=async (username)=>{
-
-    // for(let i = 0; i< userInfo.length;i++)
-    // {
-    //     if((userInfo[i].username === username))
-    //     {
-    //         return userInfo[i].randomId;
-    //     }
-    // }
-
     const level = await User.findOne({username: username})
 
     return level.accountLevel;
@@ -58,8 +40,7 @@ exports.getUserStatus=async (username)=>{
 
 exports.checkExists = async (username)=>{
     try {
-        
-        // var check = false;
+
         let user = await User.findOne({username: username})
         let check = false;
 
@@ -69,31 +50,16 @@ exports.checkExists = async (username)=>{
         }else{
             return check;
         }
-
-        // for (var i=0; i < userInfo.length; i++)
-        // {
-        //     if (userInfo[i].username == username && userInfo[i].password == password)
-        //     {
-        //         check = true;
-        //     }
-        // }   
-        return null;
         } catch (error) {
             throw new Error("Error finding username: " +error.message);
     }
 };
 
 exports.checkLoginDetails = async (username, password)=>{
-    // var check = false;
+
     try {
         
         let user = await User.findOne({username: username})
-        //let check = false;
-
-        // if(user.password == password){
-        //     check = true;
-        //     return check
-        // }
 
         if (!user || !(await bcrypt.compare(password, user.password))) {
             return false;
@@ -104,23 +70,7 @@ exports.checkLoginDetails = async (username, password)=>{
         throw new Error("Error checking login details: " +error.message);
     }
 };
-            
-        // else{
-        //     return check;
-        // }
 
-    // for (var i=0; i < userInfo.length; i++)
-    // {
-    //     if (userInfo[i].username == username && userInfo[i].password == password)
-    //     {
-    //         check = true;
-    //     }
-    // }   
-//     return null;
-//     } catch (error) {
-//         throw new Error("Error checking login details: " +error.message);
-//     }
-// };
 
 exports.signUpUser = async (username, password, email, phoneNumber) => 
     {
@@ -166,4 +116,16 @@ exports.signUpUser = async (username, password, email, phoneNumber) =>
         console.log('Error saving user data: ' + error.message);
     }
 }
+
+exports.displayUserAccounts = async () => 
+    {
+        try 
+        {
+            return await User.find({}, { _id: 1, username: 1, email: 1, phoneNumber: 1 });
+        } 
+        catch (error)
+         {
+            throw error;
+        }
+    }
 

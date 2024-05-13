@@ -16,6 +16,7 @@ var mainAdmin = require('./routes/mainAdmin');
 var bookings = require('./routes/bookings');
 var help = require('./routes/help');
 var account = require('./routes/account');
+var manageAccounts = require('./routes/manageAccounts')
 
 var app = express();
 
@@ -56,6 +57,7 @@ app.use('/mainAdmin', mainAdmin)
 app.use('/bookings', bookings);
 app.use('/help', help);
 app.use('/account', account);
+app.use('/manageAccounts', manageAccounts);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
