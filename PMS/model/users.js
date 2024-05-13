@@ -130,8 +130,13 @@ exports.signUpUser = async (username, password, email, phoneNumber) =>
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const phoneRegex = /^\d{11}$/;
 
-        const userExists = await User.findOne({username: username})
-        let check = false;
+        const passwordHashed = await bcrypt.hash(password, 8);
+        const newUser = new User({accountLevel: isAdmin,
+                                  username: username,
+                                  password: passwordHashed,
+                                  email: email,
+                                  phoneNumber: phoneNumber});
+        const savedUser = await newUser.save();
 
         if(userExists !== null){
             check = true
