@@ -130,30 +130,37 @@ exports.signUpUser = async (username, password, email, phoneNumber) =>
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const phoneRegex = /^\d{11}$/;
 
-        const newUser = new User({accountLevel: isAdmin, username: username, password: password, email: email, phoneNumber: phoneNumber});
-        const savedUser = await newUser.save();
+        const userExists = await User.findOne({username: username})
+        let check = false;
 
-        // const userExists = userInfo.some(user => user.username === username);
-        // if (userExists) 
-        // {
-        //     throw new Error('Username already exists');
-        // }
-        // const randomIdExists = userInfo.some(user => user.randomId === randomId)
-        // if(randomIdExists)
-        // {
-        //     throw new Error('ID already exists');
-        // }
-        // if (!emailRegex.test(email)) {
-        //     throw new Error('Invalid email format, please ensure it agrees with this example, example@example.com or .co.uk etc');
-        // }
+        if(userExists !== null){
+            check = true
+        }else{
+            check = false;
+        }
+        console.log(check);
 
-        // if (!phoneRegex.test(phoneNumber)) {
-        //     throw new Error('Invalid phone number format, ensure it is 11 digits long, it may need to start with a 0');
-        // }
-    
+        if (check) 
+        {
+            console.log('Username already exists');
+            return;
+        }
+        if (!emailRegex.test(email)) 
+            {
+            console.log('Invalid email format, please ensure it agrees with this example, example@example.com or .co.uk etc');
+            return;
+        }
+        if (!phoneRegex.test(phoneNumber)) 
+        {
+            console.log('Invalid phone number format, ensure it is 11 digits long, it may need to start with a 0');
+            return;
+        }
+            const newUser = new User({accountLevel: isAdmin, username: username, password: password, email: email, phoneNumber: phoneNumber});
+            const savedUser = await newUser.save();
     } 
     catch (error) 
     {
         console.log('Error saving user data: ' + error.message);
     }
 }
+
