@@ -6,6 +6,7 @@ const usermodel = require('../model/users.js');
 router.get(
     '/', 
     function(req, res, next) {
+      console.log(req.session.userID);
 
   res.render('login', { title: 'PMS' });
   

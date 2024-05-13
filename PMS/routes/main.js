@@ -6,6 +6,7 @@ const requestmodel = require('../model/requests.js');
 router.get(
   '/', 
   function(req, res, next) {
+  console.log(req.session.userID);
   res.render("main", {title: 'Main page'});
 });
 
@@ -16,6 +17,15 @@ router.get(
   res.render("requestedParking", {title: 'Main page'});
 });
 
+router.post(
+  '/logout',
+  (req,res)=>
+  {
+    req.session.destroy();
+    res.redirect('/');  
+
+  }
+)
 //POST METHOD createRequest: Creating a new request that is then added to the databased based off inputs on main page. 
 router.post(
   '/createRequest', 

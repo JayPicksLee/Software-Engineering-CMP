@@ -15,7 +15,8 @@ block content
          a(class = "nav_option", href='bookings') ??
         li  
          a(class = "nav_option", href='bookings') ??
-         
+        form(action='/main/logout', METHOD = 'POST')
+          input(type="submit", name="logout", value = "Logout")
   main
     section(class = "main_content")
      div(class ="sideRequest")
