@@ -131,12 +131,6 @@ exports.signUpUser = async (username, password, email, phoneNumber) =>
         const phoneRegex = /^\d{11}$/;
 
         const passwordHashed = await bcrypt.hash(password, 8);
-        const newUser = new User({accountLevel: isAdmin,
-                                  username: username,
-                                  password: passwordHashed,
-                                  email: email,
-                                  phoneNumber: phoneNumber});
-        const savedUser = await newUser.save();
 
         if(userExists !== null){
             check = true
@@ -160,7 +154,7 @@ exports.signUpUser = async (username, password, email, phoneNumber) =>
             console.log('Invalid phone number format, ensure it is 11 digits long, it may need to start with a 0');
             return;
         }
-            const newUser = new User({accountLevel: isAdmin, username: username, password: password, email: email, phoneNumber: phoneNumber});
+            const newUser = new User({accountLevel: isAdmin, username: username, password: passwordHashed, email: email, phoneNumber: phoneNumber});
             const savedUser = await newUser.save();
     } 
     catch (error) 
