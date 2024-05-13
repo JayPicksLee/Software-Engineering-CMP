@@ -130,6 +130,10 @@ exports.signUpUser = async (username, password, email, phoneNumber) =>
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const phoneRegex = /^\d{11}$/;
 
+        const userExists = await User.findOne({username: username})
+
+        let check = false;
+
         const passwordHashed = await bcrypt.hash(password, 8);
 
         if(userExists !== null){
