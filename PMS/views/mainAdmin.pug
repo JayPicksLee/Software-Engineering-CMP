@@ -27,7 +27,7 @@ block content
               dialog(id = `request-dialog-${request._id}`, class= "request-dialogs")
 
                 h1 Information
-                li Request made: #{request.dateCreated} UserID: #{request.userID} Destination: #{request.destination} Department: #{request.department} Arrival date: #{request.arriveDate} Departure date: #{request.departDate}
+                li Request made: #{request.dateCreated} UserID: #{request.userID}  Destination: #{request.destination} Department: #{request.department} Arrival date: #{request.arriveDate} Departure date: #{request.departDate}
 
                 form(action='/mainAdmin/approveRequest', method='POST', class = "approve_reject", id = "approve")
 
