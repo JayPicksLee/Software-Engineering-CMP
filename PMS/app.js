@@ -19,7 +19,9 @@ var account = require('./routes/account');
 
 var app = express();
 
-mongoose.connect('mongodb://127.0.0.1/userdb')
+const dId = "mongodb+srv://genericUser:AI7c4M37XxxH3a3D@cluster0.afvqwpx.mongodb.net/"
+
+mongoose.connect(dId)
   .then(()=> console.log('Connected to database'))
   .catch((err) => console.log(`Error: ${err}`));
 
