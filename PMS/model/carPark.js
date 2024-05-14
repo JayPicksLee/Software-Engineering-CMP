@@ -46,12 +46,12 @@ exports.getCarpark=async (carparkId)=>{
 
 exports.CalculateOccupyAndAvailable= async(carparkId)=>{
 
-    let carpark = await Carpark.find({carparkId});
+    let carpark = await Carpark.findById(carparkId);
 
-    carpark.available = carpark.available - 1;
-    carpark.occupied = carpark.occupied + 1;
+    await Carpark.updateOne({ _id: carparkId }, { $inc: { available: -1 } });
+    await Carpark.updateOne({ _id: carparkId }, { $inc: { reserved: +1 } });
 
-    return;
+    return carpark;
 
 }
 

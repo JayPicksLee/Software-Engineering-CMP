@@ -43,7 +43,7 @@ router.post
 
       let name =  await carparkModel.getCarparkName(location);
       requestModel.createBookingFromRequest(requestId, name);
-      
+      carparkModel.CalculateOccupyAndAvailable(location);
       requestModel.deleteRequest(requestId);
       res.redirect('/mainAdmin');
     } catch (error) {
