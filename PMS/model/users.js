@@ -121,11 +121,22 @@ exports.displayUserAccounts = async () =>
     {
         try 
         {
-            return await User.find({ accountLevel: false}, { _id: 1, username: 1, email: 1, phoneNumber: 1 });
+            return await User.find({ accountLevel: false }, { _id: 1, username: 1, email: 1, phoneNumber: 1 });
         } 
         catch (error)
-         {
+        {
             throw error;
         }
     }
 
+exports.deleteUserAccount = async (userId) =>
+    {
+        try
+        {
+            await usermodel.deleteUser(userId);
+        }
+        catch (error)
+        {
+            throw error;
+        }
+    }
