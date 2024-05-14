@@ -19,7 +19,7 @@ block content
       h2 User Accounts
       ul(style="list-style-type: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 10px;")
        each user in users
-        li(style="border: 1px solid #ccc; padding: 10px;")
+        li
           strong ID: 
           | #{user._id}
           br
@@ -29,7 +29,8 @@ block content
           strong Email: 
           | #{user.email}
           br
-          | Phone Number: #{user.phoneNumber}
+          strong Phone Number: 
+          | #{user.phoneNumber}
           button(type="button") Delete Account
   form(action='/main/logout', METHOD = 'POST', id = "logout_button")
     input(type="submit", name="logout", value = "Logout", id = "logout_input")

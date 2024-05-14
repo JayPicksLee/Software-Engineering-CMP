@@ -355,10 +355,11 @@ button:hover, input[type="submit"]:hover {
 /* Manage Accounts CSS */
 
 .manage_accounts_list li{
+  border: 3px solid #ccc; 
+  padding: 10px;
   margin-bottom: 5%;
   list-style: none; 
-  border-radius: 10px;
-  border: 2px solid white;
+  border-radius: 15px;
   background-color: #2e2e2e;
   padding:5%;
 }
