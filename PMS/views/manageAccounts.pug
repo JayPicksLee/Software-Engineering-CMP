@@ -31,3 +31,6 @@ block content
           br
           | Phone Number: #{user.phoneNumber}
           button(type="button") Delete Account
+  form(action='/main/logout', METHOD = 'POST', id = "logout_button")
+    input(type="submit", name="logout", value = "Logout", id = "logout_input")
+  

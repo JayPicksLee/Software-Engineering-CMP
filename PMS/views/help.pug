@@ -16,3 +16,6 @@ block content
          a(class = "nav_option", href='help') help
   main
     h1.center if you need any help please contact us at +44 2345678910 or helpline@email.com
+
+    form(action='/main/logout', METHOD = 'POST', id = "logout_button")
+      input(type="submit", name="logout", value = "Logout", id = "logout_input")

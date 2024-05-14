@@ -1,23 +1,23 @@
-html
-    head
+extends layout 
 
-        title Map Page
-        link(rel='stylesheet', href='/stylesheets/style.css')
+block content 
     nav(class="nav")
         div(class="nav_container")
             div(class= "nav_logo")
                 img(src="/images/UEALogo.png", alt="", id="logo")
             ul(class="nav_list")
                 li 
-                 a(class = "nav_option", href='main') Home
+                a(class = "nav_option", href='main') Home
                 li 
-                 a(class = "nav_option", href='bookings') Bookings
+                a(class = "nav_option", href='bookings') Bookings
                 li 
-                 a(class = "nav_option", href='account') Account
+                a(class = "nav_option", href='account') Account
                 li  
-                 a(class = "nav_option", href='help') help
+                a(class = "nav_option", href='help') help
     body
         main
             img(id = "parkinglot", src='/images/ParkingLot.jpg' alt='Parking Lot Image' height="500" width = "600")
+        form(action='/main/logout', METHOD = 'POST', id = "logout_button")
+            input(type="submit", name="logout", value = "Logout", id = "logout_input")
 
 

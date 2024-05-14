@@ -19,4 +19,7 @@ block content
     br
     h1.center User ID: #{userID} 
 
+    form(action='/main/logout', METHOD = 'POST', id = "logout_button")
+      input(type="submit", name="logout", value = "Logout", id = "logout_input")
+
     

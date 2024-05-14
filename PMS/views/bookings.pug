@@ -58,3 +58,5 @@ block content
                 td= booking.destination
                 td= booking.arriveDate
                 td= booking.departDate
+    form(action='/main/logout', METHOD = 'POST', id = "logout_button")
+      input(type="submit", name="logout", value = "Logout", id = "logout_input")    
