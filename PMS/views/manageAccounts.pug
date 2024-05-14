@@ -9,13 +9,13 @@ block content
         li 
          a(class = "nav_option", href='mainAdmin') Home
         li 
-         a(class = "nav_option", href='bookings') Account
+         a(class = "nav_option", href='account') Account
         li  
          a(class = "nav_option", href='help') Help
 
   main
-   section(class = "admin_main_content")
-     div
+   section(class = "manage_account_content")
+     div(class = "manage_accounts_list")
       h2 User Accounts
       ul
        each user in users

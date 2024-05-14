@@ -344,6 +344,28 @@ button:hover, input[type="submit"]:hover {
 }
 
 
+/* Manage Accounts CSS */
+
+.manage_accounts_list li{
+  margin-bottom: 5%;
+  list-style: none; 
+}
+
+.manage_accounts_list ul{
+  list-style: none; 
+}
+
+.manage_account_content{
+  margin-left: 30%;
+  margin-right: 30%;
+  border-radius: 10px;
+  background-color: #3b3b3b;
+  border: 0px solid white;
+  text-align: center;
+
+}
+
+
 @media only screen and (max-width: 900px) {
   .nav_logo{
     width: 120px;
