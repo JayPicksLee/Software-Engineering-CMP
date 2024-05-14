@@ -39,9 +39,10 @@ router.post
   {
     let requestId = {_id: req.body.id};
     try {
-
       let location = req.body.location;
-      requestModel.createBookingFromRequest(requestId,location);
+
+      let name =  await carparkModel.getCarparkName(location);
+      requestModel.createBookingFromRequest(requestId, name);
       
       requestModel.deleteRequest(requestId);
       res.redirect('/mainAdmin');

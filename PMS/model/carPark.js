@@ -26,6 +26,19 @@ exports.getCarparks=async ()=>{
     }
 }
 
+exports.getCarparkName=async (carparkId)=>{
+    try {
+
+        let all = await Carpark.findById(carparkId); 
+        let name = all.name;
+
+        return name;
+    } catch (error) {
+        throw new Error("Error getting car parks: " +error.message);
+    }
+}
+
+
 exports.getCarpark=async (carparkId)=>{
     let all = await Carpark.find({carparkId});
     return all;

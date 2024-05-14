@@ -32,7 +32,6 @@ exports.getRequests=async ()=>{
 
 exports.createBookingFromRequest=async (requestId, location)=>{
     try {
-        const newLocation = location;
         
         let request = await Request.findById(requestId);
 

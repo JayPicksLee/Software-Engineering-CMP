@@ -38,7 +38,7 @@ block content
                   label(for="location") Assign carpark
                   select(name="location", id="location") 
                     each carpark in carparks
-                      option(id = `${carpark.id}`, class = "location_options") #{carpark.name}
+                      option(id = `${carpark.id}`, class = "location_options", value = `${carpark.id}`) #{carpark.name}
 
                 form(action='/mainAdmin/rejectRequest', method='POST', class = "approve_reject", id = "reject")
                   input(type="hidden", name ="id", value = request._id)
