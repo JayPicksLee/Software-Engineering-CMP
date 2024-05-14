@@ -7,6 +7,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var crypto = require('crypto');
 var mongoose = require('mongoose');
+var bcrypt = require("bcrypt");
 
 var login = require('./routes/login');
 var main = require('./routes/main');
