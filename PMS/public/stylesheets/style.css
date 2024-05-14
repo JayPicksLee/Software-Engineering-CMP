@@ -30,7 +30,7 @@ a {
 
 iframe{
   width: 50%;
-  height: 100vh;
+  height: 90vh;
 }
 
 #logout_button {
@@ -224,12 +224,15 @@ tbody tr:nth-child(even) {
 /* MainAdmin CSS */
 
 .admin_main_content {
-  margin: 20px ; 
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto; 
   display: flex;
-  width: fit-content;
+  width: 80%;
   background-color: #2e2e2e;
   border-radius: 10px;
   justify-content: space-between;
+  padding:2%;
 }
 
 .admin_main_content h2 {
@@ -315,8 +318,9 @@ button:hover, input[type="submit"]:hover {
 }
 
 #parking_lot_img{
-  width: 100px; 
+  width: 200px; 
   height: auto;
+  float: left;
 }
 
 .carparks {
@@ -324,11 +328,16 @@ button:hover, input[type="submit"]:hover {
 }
 
 .car_park_item {
-  border: 1px solid #ffffff;
-  border-radius: 5px;
+  border: 3px solid #ffffff;
+  border-radius: 15px;
   padding: 10px;
   margin-bottom: 20px;
-  width: 100%;
+  width:fit-content;
+}
+
+.admin_img{
+  height:200%;
+  width: fit-content;
 }
 
 .car_park_item img {
@@ -355,16 +364,22 @@ button:hover, input[type="submit"]:hover {
 /* Manage Accounts CSS */
 
 .manage_accounts_list li{
+  border: 3px solid #ccc; 
+  padding: 10px;
   margin-bottom: 5%;
   list-style: none; 
-  border-radius: 10px;
-  border: 2px solid white;
+  border-radius: 15px;
   background-color: #2e2e2e;
   padding:5%;
 }
 
 .manage_accounts_list ul{
   list-style: none; 
+  list-style-type: none; 
+  padding: 0; display: 
+  grid; grid-template-columns: 
+  repeat(2, 1fr); 
+  grid-gap: 10px;
 
 }
 
@@ -387,6 +402,43 @@ button:hover, input[type="submit"]:hover {
 .manage_account_content button:hover{
   background-color: rgba(255, 0, 0, 0.2); 
 }
+
+
+/* Account Page CSS */
+
+.account_info {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #2e2e2e;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.account_page h1 {
+  text-align: center;
+  color: #fff; 
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+.info_row {
+  margin-top: 10px;
+}
+
+.account_page p {
+  margin:0;
+  font-weight: bold;
+  color: #fff;
+}
+
+.account_page a {
+  margin:0;
+  color: #00B7FF;
+}
+
+
+
+
 
 
 
