@@ -17,14 +17,19 @@ block content
    section(class = "manage_account_content")
      div(class = "manage_accounts_list")
       h2 User Accounts
-      ul
+      ul(style="list-style-type: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 10px;")
        each user in users
-        li 
-          | ID: #{user._id}
+        li(style="border: 1px solid #ccc; padding: 10px;")
+          strong ID: 
+          | #{user._id}
           br
-          | Username: #{user.username}
+          strong Username: 
+          | #{user.username}
           br
-          | Email: #{user.email}
+          strong Email: 
+          | #{user.email}
           br
-          | Phone Number: #{user.phoneNumber}
+          strong Phone Number: 
+          | #{user.phoneNumber}
+          br
           button(type="button") Delete Account
