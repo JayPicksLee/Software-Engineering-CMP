@@ -70,7 +70,7 @@ block content
           li 
             
             img(id = "parking_lot_img", src='/images/UEACarPark.jpg' alt='Parking Lot Image') 
-            |  Name: #{carpark._id} #{carpark.name}  Capacity: #{carpark.max_capacity} Avaiable: #{carpark.available} Occupied: #{carpark.occupied} Reserved: #{carpark.reserved}
+            |  Name: #{carpark._id} #{carpark.name}  Capacity: #{carpark.max_capacity} Available: #{carpark.available} Occupied: #{carpark.occupied} Reserved: #{carpark.reserved}
             div(car_park_buttons)
               form(action='/mainAdmin/deleteLot', method='POST', class = "park_buttons")
               input(type="hidden", name ="id", value = carpark._id)
