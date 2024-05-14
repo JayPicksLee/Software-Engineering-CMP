@@ -30,4 +30,8 @@ block content
           | #{user.email}
           br
           | Phone Number: #{user.phoneNumber}
-          button(type="button") Delete Account
+          br
+          br
+          form(action="/manageAccounts/deleteUserAccount", method="POST")
+            input(type="hidden", name="userId", value=user._id)
+            button(type="submit") Delete Account
