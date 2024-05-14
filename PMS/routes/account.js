@@ -3,9 +3,10 @@ var router = express.Router();
 const usermodel = require('../model/users.js');
 
 router.get('/', async(req, res, next) => {
-    const allUsers = await usermodel.displayUserAccounts();
+    const allUsers = await usermodel.getUsers();
     const userID = req.session.userID;
-    res.render("account", {users: allUsers, userID: userID});
+    const accountAccess = usermodel.getUserStatus;
+    res.render("account", {users: allUsers, userID: userID, accountAccess: accountAccess});
 });
 
 
