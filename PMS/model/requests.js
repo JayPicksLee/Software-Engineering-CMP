@@ -20,11 +20,10 @@ const Request = mongoose.model("Request", requestSchema)
 exports.getRequests=async ()=>{
     let all = [];
     try{
-        console.log("Finding requests ....");
          all = await Request.find();
 
     }catch(err){
-        console.log("CANT FIND REQUESTS");
+
     }
     
     return all;
@@ -34,14 +33,14 @@ exports.getRequests=async ()=>{
 exports.createBookingFromRequest=async (requestId, location)=>{
     try {
         const newLocation = location;
-        console.log("ID APPROVING: " + requestId);
+        
         let request = await Request.findById(requestId);
-        console.log(request)
+
         bookingsModel.createBooking(request, location);
         
         
     } catch (error) {
-        console.log("DIDNT DLEETE");
+        console.log("DIDNT CREATE");
     }
     
 }
@@ -59,7 +58,7 @@ exports.deleteRequest=async (requestId)=>{
 exports.getRequestById=async (requestId)=>{
     try{
         const request = await Request.find({requestId});
-        console.log(request);
+
         return request;
     }catch(error){
         throw new Error('Error finding request by ID: ' + error.message);
@@ -68,8 +67,7 @@ exports.getRequestById=async (requestId)=>{
 
 exports.getRequestsByUserId=async (userID)=>{
     let all = await Request.find({userID});
-    console.log(all);
-    console.log("Finding requests for ...." + userID);
+
     return all;
 }
 

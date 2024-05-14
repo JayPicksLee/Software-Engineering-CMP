@@ -26,6 +26,22 @@ exports.getCarparks=async ()=>{
     }
 }
 
+exports.getCarpark=async (carparkId)=>{
+    let all = await Carpark.find({carparkId});
+    return all;
+}
+
+exports.CalculateOccupyAndAvailable= async(carparkId)=>{
+
+    let carpark = await Carpark.find({carparkId});
+
+    carpark.available = carpark.available - 1;
+    carpark.occupied = carpark.occupied + 1;
+
+    return;
+
+}
+
 exports.deleteCarpark=async (carparkId)=>{
     try {
         console.log(carparkId);

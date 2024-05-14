@@ -24,6 +24,8 @@ exports.createBooking = async (requestObject, newLocation) => {
              arriveDate: requestObject.arriveDate,
              departDate: requestObject.departDate
             });
+
+        
             
         const savedBooking = await newBooking.save();
         console.log("Booking created: ", savedBooking);
