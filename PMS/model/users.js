@@ -133,7 +133,7 @@ exports.deleteUserAccount = async (userId) =>
     {
         try
         {
-            await usermodel.deleteUser(userId);
+            return await User.deleteOne({ _id: userId });
         }
         catch (error)
         {
