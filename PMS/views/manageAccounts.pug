@@ -1,11 +1,24 @@
-html 
-  head 
-   title Manage User Accounts
-   link(rel='stylesheet', href='/stylesheets/frontPage.css')
-   meta(name="viewport", content="width=device-width, initial-scale=1.0")
-  body
-    ul
-      each user in users
+extends layout 
+
+block content 
+  nav(class="nav")
+    div(class="nav_container")
+      div(class= "nav_logo")
+        img(src="/images/UEALogo.png", alt="", id="logo")
+      ul(class="nav_list")
+        li 
+         a(class = "nav_option", href='mainAdmin') Home
+        li 
+         a(class = "nav_option", href='bookings') Account
+        li  
+         a(class = "nav_option", href='help') Help
+
+  main
+   section(class = "admin_main_content")
+     div
+      h2 User Accounts
+      ul
+       each user in users
         li 
           | ID: #{user._id}
           br
