@@ -389,6 +389,43 @@ button:hover, input[type="submit"]:hover {
 }
 
 
+/* Account Page CSS */
+
+.account_info {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #2e2e2e;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.account_page h1 {
+  text-align: center;
+  color: #fff; 
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+.info_row {
+  margin-top: 10px;
+}
+
+.account_page p {
+  margin:0;
+  font-weight: bold;
+  color: #fff;
+}
+
+.account_page a {
+  margin:0;
+  color: #00B7FF;
+}
+
+
+
+
+
+
 
 
 @media only screen and (max-width: 900px) {

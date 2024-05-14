@@ -14,10 +14,26 @@ block content
          a(class = "nav_option", href='account') Account
         li  
          a(class = "nav_option", href='help') Help
-  main
-    h1.center account info page 
-    br
-    h1.center User ID: #{userID} 
+  main(class = "account_page")
+    h1.center Account Info Page
+    each user in users
+      if user._id == userID 
+        div(class="account_info")
+          div(class="info_row")
+            p User ID:
+            a #{user._id}
+          div(class="info_row")
+            p Username:
+            a #{user.username}
+          div(class="info_row")
+            p Email:
+            a #{user.email}
+          div(class="info_row")
+            p Phone Number:
+            a #{user.phoneNumber}
+          form(action='/main/logout', METHOD='POST', id='logout_button')
+            input(type='submit', name='logout', value='Logout', id='logout_input')
+
 
     form(action='/main/logout', METHOD = 'POST', id = "logout_button")
       input(type="submit", name="logout", value = "Logout", id = "logout_input")

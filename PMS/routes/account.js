@@ -1,16 +1,12 @@
 var express = require('express');
 var router = express.Router();
-const requestModel = require('../model/requests.js');
+const usermodel = require('../model/users.js');
 
-router.get('/', async (req, res, next) => {
-  try {
-    const userID = req.session.userID; 
-    const userRequests = await requestModel.getRequestsByUserId(userID);
-    res.render('account', { title: 'Account Page', userRequests, userID}); 
-  } catch (error) {
-    console.error('Error fetching requests:', error);
-    res.status(500).send('Internal Server Error');
-  }
+router.get('/', async(req, res, next) => {
+    const allUsers = await usermodel.displayUserAccounts();
+    const userID = req.session.userID;
+    res.render("account", {users: allUsers, userID: userID});
 });
+
 
 module.exports = router;
