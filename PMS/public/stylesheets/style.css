@@ -232,6 +232,14 @@ tbody tr:nth-child(even) {
   justify-content: space-between;
 }
 
+.admin_main_content h2 {
+  text-align: center;
+  color: #fff; 
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+
 .requests, .carparks {
   margin-bottom: 40px; 
 }

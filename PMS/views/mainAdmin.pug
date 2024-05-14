@@ -7,11 +7,12 @@ block content
         img(src="/images/UEALogo.png", alt="", id="logo")
       ul(class="nav_list")
         li 
-         a(class = "nav_option", href='bookings') Account
-        li  
-         a(class = "nav_option", href='help') Help
+         a(class = "nav_option", href='account') Account
         li  
          a(class = "nav_option", href='manageAccounts') Manage Accounts
+        li  
+         a(class = "nav_option", href='help') Help
+          
 
   main
    section(class = "admin_main_content")
@@ -84,3 +85,5 @@ block content
 
          
       script(src="/javascripts/adminClient.js")
+  form(action='/main/logout', METHOD = 'POST', id = "logout_button")
+    input(type="submit", name="logout", value = "Logout", id = "logout_input")

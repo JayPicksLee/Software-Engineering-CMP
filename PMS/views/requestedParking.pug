@@ -16,3 +16,5 @@ block content
          a(class = "nav_option", href='help') help
   main
     h1.center Thank you for your request, its being processed with an admin now
+    form(action='/main/logout', METHOD = 'POST', id = "logout_button")
+      input(type="submit", name="logout", value = "Logout", id = "logout_input")
