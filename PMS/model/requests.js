@@ -31,12 +31,13 @@ exports.getRequests=async ()=>{
 }
 
 
-exports.createBookingFromRequest=async (requestId)=>{
+exports.createBookingFromRequest=async (requestId, location)=>{
     try {
+        const newLocation = location;
         console.log("ID APPROVING: " + requestId);
         let request = await Request.findById(requestId);
         console.log(request)
-        bookingsModel.createBooking(request);
+        bookingsModel.createBooking(request, location);
         
         
     } catch (error) {
