@@ -224,12 +224,15 @@ tbody tr:nth-child(even) {
 /* MainAdmin CSS */
 
 .admin_main_content {
-  margin: 20px ; 
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto; 
   display: flex;
-  width: fit-content;
+  width: 80%;
   background-color: #2e2e2e;
   border-radius: 10px;
   justify-content: space-between;
+  padding:2%;
 }
 
 .admin_main_content h2 {
@@ -315,8 +318,9 @@ button:hover, input[type="submit"]:hover {
 }
 
 #parking_lot_img{
-  width: 100px; 
+  width: 200px; 
   height: auto;
+  float: left;
 }
 
 .carparks {
@@ -324,11 +328,16 @@ button:hover, input[type="submit"]:hover {
 }
 
 .car_park_item {
-  border: 1px solid #ffffff;
-  border-radius: 5px;
+  border: 3px solid #ffffff;
+  border-radius: 15px;
   padding: 10px;
   margin-bottom: 20px;
-  width: 100%;
+  width:fit-content;
+}
+
+.admin_img{
+  height:200%;
+  width: fit-content;
 }
 
 .car_park_item img {
@@ -366,6 +375,11 @@ button:hover, input[type="submit"]:hover {
 
 .manage_accounts_list ul{
   list-style: none; 
+  list-style-type: none; 
+  padding: 0; display: 
+  grid; grid-template-columns: 
+  repeat(2, 1fr); 
+  grid-gap: 10px;
 
 }
 
