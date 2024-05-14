@@ -19,8 +19,6 @@ router.post('/createNewUser', (req, res, next) => {
 
   try 
   {
-      console.log("post received");
-    
       usermodel.signUpUser(username, password, email, phoneNumber);
       
       console.log("Signup successful");

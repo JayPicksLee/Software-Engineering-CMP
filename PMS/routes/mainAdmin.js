@@ -39,8 +39,10 @@ router.post
   {
     let requestId = {_id: req.body.id};
     try {
-      requestModel.createBookingFromRequest(requestId);
 
+      let location = req.body.location;
+      requestModel.createBookingFromRequest(requestId,location);
+      
       requestModel.deleteRequest(requestId);
       res.redirect('/mainAdmin');
     } catch (error) {

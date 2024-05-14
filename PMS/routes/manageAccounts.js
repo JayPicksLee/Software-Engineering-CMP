@@ -8,17 +8,14 @@ router.get('/', async(req, res, next) => {
     res.render("manageAccounts", {users: allUsers});
 });
 
-router.delete('/_id', async (req, res, next) => {
-    const userId = req.params._id;
+router.post('/deleteUserAccount', async(req, res, next) => {
+    const userId = req.body.userId; 
     try {
         await usermodel.deleteUserAccount(userId);
-        res.sendStatus(200); // Send a success response
+        res.redirect('/manageAccounts');
     } catch (error) {
-        console.error(error);
-        res.status(500).send('Server Error'); // Send an error response
+        console.error('Error:', error);
+        res.status(500).send('Server Error');
     }
-});
-
-
-
+  });
 module.exports = router;

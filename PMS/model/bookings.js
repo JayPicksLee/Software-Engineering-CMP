@@ -14,13 +14,13 @@ const bookingSchema = new Schema({
 
 const Booking = mongoose.model("Booking", bookingSchema)
 
-exports.createBooking = async (requestObject) => {
+exports.createBooking = async (requestObject, newLocation) => {
     try {
         console.log(requestObject);
         const newBooking = new Booking({
              userID: requestObject.userID,
              department: requestObject.department, 
-             destination: requestObject.destination,
+             destination: newLocation,
              arriveDate: requestObject.arriveDate,
              departDate: requestObject.departDate
             });
