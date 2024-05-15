@@ -10,13 +10,16 @@ router.get(
     try{
     console.log(req.session);
     console.log(req.session.id);
+
     req.session.visited = true;
 
     let request = await requestModel.getRequestsByUserId(req.session.userID);
     let booking = await bookingModel.getBookingsByUserId(req.session.userID);
 
     req.sessionStore.get(req.session.id, (err, sessionData) =>{
+
       if(err){
+
         console.log(err);
         throw err;
       }
@@ -37,4 +40,5 @@ router.get(
   
 });
 
+//POST METHOD markOccupied: When user arrives at destination, they can press a button letting the system know they are at their destination, this updates the databases occupied value for that carpark
 module.exports = router;

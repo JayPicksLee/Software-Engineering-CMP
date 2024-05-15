@@ -8,8 +8,11 @@ router.get(
 
     console.log(req.session);
     console.log(req.session.id);
+
     req.sessionStore.get(req.session.id, (err, sessionData) =>{
+      
       if(err){
+
         console.log(err);
         throw err;
       }

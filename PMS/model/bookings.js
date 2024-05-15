@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const bookingSchema = new Schema({
     userID: String,
+    carparkID: String,
     department: String,
     destination: String,
     arriveDate: Date,
@@ -14,11 +15,12 @@ const bookingSchema = new Schema({
 
 const Booking = mongoose.model("Booking", bookingSchema)
 
-exports.createBooking = async (requestObject, newLocation) => {
+exports.createBooking = async (requestObject, newLocation, carparkID) => {
     try {
         console.log(requestObject);
         const newBooking = new Booking({
              userID: requestObject.userID,
+             carparkID: carparkID,
              department: requestObject.department, 
              destination: newLocation,
              arriveDate: requestObject.arriveDate,

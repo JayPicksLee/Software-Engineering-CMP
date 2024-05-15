@@ -54,9 +54,13 @@ block content
           tbody
             each booking in userBookings
               tr
-                td= booking.department
                 td= booking.destination
+                td= booking.department
                 td= booking.arriveDate
                 td= booking.departDate
+                td
+                   form(action="/markOccupied")
+                   input(type="hidden", name ="id", value = booking._id)
+                   input(type = "submit", value = "Mark occupied") 
     form(action='/main/logout', METHOD = 'POST', id = "logout_button")
       input(type="submit", name="logout", value = "Logout", id = "logout_input")    

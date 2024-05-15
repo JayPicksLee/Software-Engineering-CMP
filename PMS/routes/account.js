@@ -5,12 +5,15 @@ const usermodel = require('../model/users.js');
 router.get('/', async(req, res, next) => {
     console.log(req.session);
     console.log(req.session.id);
+
     req.session.visited = true;
 
     const allUsers = await usermodel.getUsers();
 
     req.sessionStore.get(req.session.id, (err, sessionData) =>{
+
       if(err){
+        
         console.log(err);
         throw err;
       }
@@ -19,8 +22,10 @@ router.get('/', async(req, res, next) => {
       if(!req.session.userID){
         return res.status(401).send({msg: "Not authenticated"});
       }else{
+
         const userID = req.session.userID;
         const accountAccess = usermodel.getUserStatus;
+
         res.render("account", {users: allUsers, userID: userID, accountAccess: accountAccess});
       }
     });
