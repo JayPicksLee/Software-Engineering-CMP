@@ -72,7 +72,6 @@ exports.getRequestsByUserId=async (userID)=>{
 exports.createRequest = async (userID,department, destination, arriveDate, departDate) => {
     try {
         var currentDateCreated = new Date();
-        console.log(currentDateCreated);
 
         const newRequest = new Request({
              userID: userID,
