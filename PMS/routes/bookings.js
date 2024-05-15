@@ -41,4 +41,14 @@ router.get(
 });
 
 //POST METHOD markOccupied: When user arrives at destination, they can press a button letting the system know they are at their destination, this updates the databases occupied value for that carpark
+router.post('/markOccupied',
+  async function(req, res){
+    try {
+      
+      res.redirect("/bookings");
+    } catch (error) {
+      
+    }
+  }
+)
 module.exports = router;
