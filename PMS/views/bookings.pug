@@ -59,8 +59,12 @@ block content
                 td= booking.arriveDate
                 td= booking.departDate
                 td
-                   form(action="/markOccupied")
-                   input(type="hidden", name ="id", value = booking._id)
-                   input(type = "submit", value = "Mark occupied") 
+                   form(action="/bookings/markOccupied", method = "POST")
+                     input(type="hidden", name ="id", value = booking.carparkID)
+                     button(type = "submit", value = "Mark occupied") Mark occupied
+                td
+                   form(action="/cancelBooking", method = "POST")
+                    input(type="hidden", name ="id", value = booking.carparkID)
+                    button(type = "submit", value = "Cancel booking") Cancel booking
     form(action='/main/logout', METHOD = 'POST', id = "logout_button")
       input(type="submit", name="logout", value = "Logout", id = "logout_input")    
