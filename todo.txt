@@ -12,7 +12,7 @@ Tasks to do and up for grabs
 2.7
 
 3.4
-3.5
+3.5 - Almost done, linking payment stuff together
 3.6
 3.7
 3.8
