@@ -79,9 +79,12 @@ router.post('/cancelBooking',
 router.post('/notifyDeparture',
   async function(req, res){
     try {
-      const bookingId = req.body.cancel;
+      const carparkId = req.body.departCarparkId;
+      const bookingId = req.body.departBookingId;
+      
+      bookingModel.setDepartedTrue(bookingId);
 
-      bookingModel.deleteBooking(bookingId);
+      let carpark = await carparkModel.userDeparted(carparkId);
 
       res.redirect("/bookings");
     } catch (error) {

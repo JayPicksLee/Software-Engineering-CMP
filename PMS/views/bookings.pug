@@ -53,6 +53,7 @@ block content
               th Departure Date
           tbody
             each booking in userBookings
+             if booking.isOccupied === false || booking.isDeparted === false  
               tr
                 td= booking.destination
                 td= booking.department
@@ -72,11 +73,32 @@ block content
                    form(action="/bookings/cancelBooking", method = "POST")
                     input(type="hidden", name ="cancel", value = booking._id)
                     button(type = "submit") Cancel booking
-                if booking.isOccupied === true    
+
+                if booking.isOccupied === true && booking.isDeparted === false
                   td                  
                    form(action="/bookings/notifyDeparture", method = "POST")
-                    input(type="hidden", name ="depart", value = booking._id)
-                    button(type = "submit") Notify departure
+                     input(type="hidden", name ="departCarparkId", value = booking.carparkID)
+                     input(type="hidden", name ="departBookingId", value = booking._id)
+                     button(type = "submit") Notify departure
+
+      div(id ="pastBookings_display")
+      h1 My Past Bookings
+       if userBookings.length > 0
+        table
+          thead
+            tr
+              th Destination
+              th Department
+              th Arrival Date
+              th Departure Date
+          tbody
+            each booking in userBookings
+             if booking.isOccupied === true && booking.isDeparted === true
+              tr
+                td= booking.destination
+                td= booking.department
+                td= booking.arriveDate
+                td= booking.departDate
 
     form(action='/main/logout', METHOD = 'POST', id = "logout_button")
       input(type="submit", name="logout", value = "Logout", id = "logout_input")    

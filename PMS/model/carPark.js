@@ -65,6 +65,16 @@ exports.MarkOccupy = async(carparkId)=>{
     return carpark;
 }
 
+exports.userDeparted = async(carparkId)=>{
+
+    let carpark = await Carpark.findById(carparkId);
+
+    await Carpark.updateOne({_id: carparkId}, { $inc: {occupied: -1}});
+    await Carpark.updateOne({_id: carparkId}, { $inc: {available: +1}});
+
+    return carpark;
+}
+
 exports.deleteCarpark=async (carparkId)=>{
     try {
         console.log(carparkId);
