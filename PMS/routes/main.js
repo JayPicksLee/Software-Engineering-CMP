@@ -6,8 +6,25 @@ const requestmodel = require('../model/requests.js');
 router.get(
   '/', 
   function(req, res, next) {
+    console.log(req.session);
+    console.log(req.session.id);
+    req.session.visited = true;
+    req.sessionStore.get(req.session.id, (err, sessionData) =>{
+      if(err){
+        console.log(err);
+        throw err;
+      }
+      console.log(sessionData);
+
+      if(!req.session.userID){
+        return res.status(401).send({msg: "Not authenticated"});
+      }else{
+        res.render("main", {title: 'Main page'})
+      }
+      
+    });
   console.log(req.session.userID);
-  res.render("main", {title: 'Main page'});
+  
 });
 
 //GET METHOD: Rendering the requestParking page upon request creation. TO DO: Look at potential removal and rendering dynamically on main page.

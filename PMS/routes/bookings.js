@@ -8,11 +8,29 @@ router.get(
   '/', 
   async function(req, res) {
     try{
-      //Getting requests and bookings from the mongo database based off the current stored user id and rendering these on the screen.
-      let request = await requestModel.getRequestsByUserId(req.session.userID);
-      let booking = await bookingModel.getBookingsByUserId(req.session.userID);
+    console.log(req.session);
+    console.log(req.session.id);
+    req.session.visited = true;
 
-      res.render("bookings", {userRequests: request, userBookings: booking});
+    let request = await requestModel.getRequestsByUserId(req.session.userID);
+    let booking = await bookingModel.getBookingsByUserId(req.session.userID);
+
+    req.sessionStore.get(req.session.id, (err, sessionData) =>{
+      if(err){
+        console.log(err);
+        throw err;
+      }
+      console.log(sessionData);
+
+      if(!req.session.userID){
+        return res.status(401).send({msg: "Not authenticated"});
+      }else{
+        
+        res.render("bookings", {userRequests: request, userBookings: booking});
+      }
+    });
+      //Getting requests and bookings from the mongo database based off the current stored user id and rendering these on the screen.
+      
     }catch(err){
       res.status(404).send('bookings list failed')
     }

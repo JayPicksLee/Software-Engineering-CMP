@@ -4,8 +4,13 @@ const usermodel = require('../model/users.js');
 
 router.get('/', async(req, res, next) => {
     const allUsers = await usermodel.displayUserAccounts();
-    console.log(allUsers);
-    res.render("manageAccounts", {users: allUsers});
+     if(req.session.userID != '66424281484b7968a5d38f49' || !req.session.userID ){
+         return res.status(401).send({msg: "Not authenticated"});
+     }else{
+        console.log(allUsers);
+        res.render("manageAccounts", {users: allUsers});
+     }
+    
 });
 
 router.post('/deleteUserAccount', async(req, res, next) => {

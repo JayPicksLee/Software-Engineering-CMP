@@ -11,11 +11,14 @@ router.get
   let request = await requestModel.getRequests();
   
   let carpark = await carparkModel.getCarparks();
-  
-  res.render("mainAdmin", {userRequests: request, carparks: carpark });
+  if(req.session.userID != '66424281484b7968a5d38f49' || !req.session.userID ){
+    return res.status(401).send({msg: "Not authenticated"});
+  }else{
+    res.render("mainAdmin", {userRequests: request, carparks: carpark });
+  }
+
 
 });
-
 
 //POST METHOD CreateNewParkingLot: Creating new parking lot based off input fields in createNewParkingLot dialog box.
 router.post
@@ -30,6 +33,7 @@ router.post
 
     res.redirect('/mainAdmin');
 
+
 });
 
 //POST METHOD approveRequest: Creating booking data in database based off requests data and attributes, and then deleting that request. Thus approving the request.
@@ -42,9 +46,23 @@ router.post
       let location = req.body.location;
 
       let name =  await carparkModel.getCarparkName(location);
-      requestModel.createBookingFromRequest(requestId, name);
-      carparkModel.CalculateOccupyAndAvailable(location);
-      requestModel.deleteRequest(requestId);
+      try {
+        requestModel.createBookingFromRequest(requestId, name);
+      } catch (error) {
+        
+      }
+      try {
+        carparkModel.CalculateOccupyAndAvailable(location);
+      } catch (error) {
+        
+      }
+      try {
+        requestModel.deleteRequest(requestId);
+      } catch (error) {
+        
+      }
+      
+      
       res.redirect('/mainAdmin');
     } catch (error) {
       
