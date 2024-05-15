@@ -170,6 +170,8 @@ iframe{
   margin-left: 4%;
 }
 
+
+
 /* Map Page CSS */
 
 #parkinglot{
@@ -441,10 +443,57 @@ button:hover, input[type="submit"]:hover {
 
 
 
+.createRequestBtn {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  height: 150px;
+  font-size: 50px;
+  text-align: center;
+  margin-left: 0;
+  bottom:0;
+}
 
+@media only screen and (max-width: 1000px) {
 
-@media only screen and (max-width: 900px) {
+  .createRequestBtn {
+    display: block; 
+  }
+
   .nav_logo{
     width: 120px;
+  }
+
+  .main_content {
+    flex-direction: column-reverse; 
+  }
+
+  .sideRequest {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: rgba(38, 41, 46, 0.87);
+    display: none; 
+    overflow-y: scroll; 
+  }
+
+  .showRequest {
+    display: block !important; 
+  }
+
+  .showRequest button.closeRequest {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
   }
   }
