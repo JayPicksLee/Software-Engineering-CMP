@@ -35,10 +35,13 @@ const secretSession = crypto.randomBytes(32).toString('hex');
 
 app.use(
   session({
+    //Not guessable for a more secure session
     secret: secretSession,
     resave: false,
-    saveUninitialized: false
-
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 60000 * 60,
+    },
 
 }));
 
@@ -76,4 +79,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.listen(3000)
 module.exports = app;
