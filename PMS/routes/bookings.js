@@ -40,8 +40,8 @@ router.get(
   
 });
 
-//POST METHOD markOccupied: When user arrives at destination, they can press a button letting the system know they are at their destination, this updates the databases occupied value for that carpark
-router.post('/markOccupied',
+//POST METHOD notifyArrival: When user arrives at destination, they can press a button letting the system know they are at their destination, this updates the databases occupied value for that carpark
+router.post('/notifyArrival',
   async function(req, res){
     try {
       const carparkId = req.body.mark;
@@ -61,6 +61,22 @@ router.post('/markOccupied',
 
 //POST METHOD cancelBooking: User can cancel their booking by pressing a button on the page.
 router.post('/cancelBooking',
+  async function(req, res){
+    try {
+      const bookingId = req.body.cancel;
+
+      bookingModel.deleteBooking(bookingId);
+
+      res.redirect("/bookings");
+    } catch (error) {
+      
+    }
+  }
+)
+
+
+//POST METHOD notifyDeparture: After user has notified of their arrival, they can announce their departure.
+router.post('/notifyDeparture',
   async function(req, res){
     try {
       const bookingId = req.body.cancel;

@@ -39,7 +39,7 @@ block content
                 td= request.department
                 td= request.arriveDate
                 td= request.departDate
-                td= request.approvedStatus
+                td Awaiting approval
 
       div(id ="bookings_display")
       h1 My Bookings
@@ -58,17 +58,25 @@ block content
                 td= booking.department
                 td= booking.arriveDate
                 td= booking.departDate
-                td
-                  if booking.isOccupied === false
-                   form(action="/bookings/markOccupied", method = "POST")
+                if booking.isOccupied === false
+                 td
+                   form(action="/bookings/notifyArrival", method = "POST")
                      input(type="hidden", name ="mark", value = booking.carparkID)
                      input(type="hidden", name = "bookingId", value = booking._id)
                      button(type = "submit") Mark occupied
-                  else 
-                    p Occupied!
-                td
+                else 
+                  td Occupied
+
+                if booking.isOccupied === false    
+                  td                  
                    form(action="/bookings/cancelBooking", method = "POST")
                     input(type="hidden", name ="cancel", value = booking._id)
                     button(type = "submit") Cancel booking
+                if booking.isOccupied === true    
+                  td                  
+                   form(action="/bookings/notifyDeparture", method = "POST")
+                    input(type="hidden", name ="depart", value = booking._id)
+                    button(type = "submit") Notify departure
+
     form(action='/main/logout', METHOD = 'POST', id = "logout_button")
       input(type="submit", name="logout", value = "Logout", id = "logout_input")    
