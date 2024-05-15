@@ -9,7 +9,7 @@ const bookingSchema = new Schema({
     destination: String,
     arriveDate: Date,
     departDate: Date,
-
+    isOccupied: Boolean
 
 });
 
@@ -24,7 +24,8 @@ exports.createBooking = async (requestObject, newLocation, carparkID) => {
              department: requestObject.department, 
              destination: newLocation,
              arriveDate: requestObject.arriveDate,
-             departDate: requestObject.departDate
+             departDate: requestObject.departDate,
+             isOccupied: false
             });
 
         
@@ -40,4 +41,16 @@ exports.createBooking = async (requestObject, newLocation, carparkID) => {
 exports.getBookingsByUserId=async (userID)=>{
     let all = await Booking.find({userID});
     return all;
+}
+
+exports.getBookingById=async (bookingId)=>{
+    let all = await Booking.findById(bookingId);
+    return all;
+}
+
+exports.setOccupiedTrue= async(bookingId)=>{
+
+    await Booking.updateOne({ _id: bookingId}, {$set: { isOccupied: true}});
+    return;
+
 }

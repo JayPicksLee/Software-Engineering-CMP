@@ -14,7 +14,7 @@ router.get
 
   if(req.session.userID != '66424281484b7968a5d38f49' || !req.session.userID ){
 
-    return res.status(401).send({msg: "Not authenticated"});
+    return res.redirect("/");
 
   }else{
     res.render("mainAdmin", {userRequests: request, carparks: carpark });
@@ -55,7 +55,7 @@ router.post
         
       }
       try {
-        carparkModel.CalculateOccupyAndAvailable(carparkId);
+        carparkModel.CalculateReservedAndAvailable(carparkId);
       } catch (error) {
         
       }

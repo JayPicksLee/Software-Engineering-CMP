@@ -59,12 +59,16 @@ block content
                 td= booking.arriveDate
                 td= booking.departDate
                 td
+                  if booking.isOccupied === false
                    form(action="/bookings/markOccupied", method = "POST")
-                     input(type="hidden", name ="id", value = booking.carparkID)
-                     button(type = "submit", value = "Mark occupied") Mark occupied
+                     input(type="hidden", name ="mark", value = booking.carparkID)
+                     input(type="hidden", name = "bookingId", value = booking._id)
+                     button(type = "submit") Mark occupied
+                  else 
+                    p Occupied!
                 td
-                   form(action="/cancelBooking", method = "POST")
-                    input(type="hidden", name ="id", value = booking.carparkID)
-                    button(type = "submit", value = "Cancel booking") Cancel booking
+                   form(action="/bookings/cancelBooking", method = "POST")
+                    input(type="hidden", name ="cancel", value = booking.carparkID)
+                    button(type = "submit") Cancel booking
     form(action='/main/logout', METHOD = 'POST', id = "logout_button")
       input(type="submit", name="logout", value = "Logout", id = "logout_input")    

@@ -19,7 +19,7 @@ router.get(
       console.log(sessionData);
 
       if(!req.session.userID){
-        return res.status(401).send({msg: "Not authenticated"});
+        return res.redirect("/");
       }else{
         res.render("main", {title: 'Main page'})
       }
