@@ -6,8 +6,10 @@ const usermodel = require('../model/users.js');
 router.get(
     '/', 
     function(req, res, next) {
+      
       console.log(req.session);
       console.log(req.session.id);
+
       req.sessionStore.get(req.session.id, (err, sessionData) =>{
         if(err){
           console.log(err);

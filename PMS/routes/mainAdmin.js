@@ -11,8 +11,11 @@ router.get
   let request = await requestModel.getRequests();
   
   let carpark = await carparkModel.getCarparks();
+
   if(req.session.userID != '66424281484b7968a5d38f49' || !req.session.userID ){
+
     return res.status(401).send({msg: "Not authenticated"});
+
   }else{
     res.render("mainAdmin", {userRequests: request, carparks: carpark });
   }
@@ -43,16 +46,16 @@ router.post
   {
     let requestId = {_id: req.body.id};
     try {
-      let location = req.body.location;
+      let carparkId = req.body.location;
 
-      let name =  await carparkModel.getCarparkName(location);
+      let name =  await carparkModel.getCarparkName(carparkId);
       try {
-        requestModel.createBookingFromRequest(requestId, name);
+        requestModel.createBookingFromRequest(requestId, name, carparkId);
       } catch (error) {
         
       }
       try {
-        carparkModel.CalculateOccupyAndAvailable(location);
+        carparkModel.CalculateOccupyAndAvailable(carparkId);
       } catch (error) {
         
       }

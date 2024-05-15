@@ -30,12 +30,12 @@ exports.getRequests=async ()=>{
 }
 
 
-exports.createBookingFromRequest=async (requestId, location)=>{
+exports.createBookingFromRequest=async (requestId, location, carparkId)=>{
     try {
         
         let request = await Request.findById(requestId);
 
-        bookingsModel.createBooking(request, location);
+        bookingsModel.createBooking(request, location, carparkId);
         
         
     } catch (error) {
