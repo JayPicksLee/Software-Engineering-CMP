@@ -68,7 +68,7 @@ block content
                     p Occupied!
                 td
                    form(action="/bookings/cancelBooking", method = "POST")
-                    input(type="hidden", name ="cancel", value = booking.carparkID)
+                    input(type="hidden", name ="cancel", value = booking._id)
                     button(type = "submit") Cancel booking
     form(action='/main/logout', METHOD = 'POST', id = "logout_button")
       input(type="submit", name="logout", value = "Logout", id = "logout_input")    

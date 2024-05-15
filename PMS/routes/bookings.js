@@ -63,6 +63,9 @@ router.post('/markOccupied',
 router.post('/cancelBooking',
   async function(req, res){
     try {
+      const bookingId = req.body.cancel;
+
+      bookingModel.deleteBooking(bookingId);
 
       res.redirect("/bookings");
     } catch (error) {

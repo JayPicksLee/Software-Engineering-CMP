@@ -51,6 +51,16 @@ exports.getBookingById=async (bookingId)=>{
 exports.setOccupiedTrue= async(bookingId)=>{
 
     await Booking.updateOne({ _id: bookingId}, {$set: { isOccupied: true}});
-    return;
 
+}
+
+exports.deleteBooking=async (bookingId)=>{
+    try {
+        // console.log("DELETING:" + requestId);
+        await Booking.findByIdAndDelete(bookingId);
+        
+    } catch (error) {
+        console.log("DIDNT DLEETE");
+    }
+    
 }
