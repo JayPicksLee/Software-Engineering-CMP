@@ -78,7 +78,7 @@ block content
           label(for="departureSelect") Select departure date and time
           input(type="datetime-local", id="departureSelect", name="departureSelect")
           br
-          button(type="button", onclick="showBookingConfirmDialog()") Submit request
+          button(type="button", onclick="showBookingConfirmDialog()", id = "submit_button") Submit request
 
       div(class="sideMap")
         iframe(id="map", src="https://www.google.com/maps/d/u/0/embed?mid=19Y2uYDjzPjg_DmreQQnEMcAjHySUdUI&ehbc=2E312F&noprof=1")
