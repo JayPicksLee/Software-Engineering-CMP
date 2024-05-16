@@ -437,6 +437,24 @@ button:hover, input[type="submit"]:hover {
   color: #00B7FF;
 }
 
+#paymentPageButton {
+  display: block;
+  margin: auto;
+  height: 15%;
+  width: 20%;
+  border: 3px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.requestPageContainer {
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #2e2e2e;
+  border-radius: 10px;
+  max-width: 1000px;
+}
+
 
 
 
