@@ -6,6 +6,9 @@ block content
       div(class= "nav_logo")
         img(src="/images/UEALogo.png", alt="", id="logo")
       ul(class="nav_list")
+        li
+          if userID == '66424281484b7968a5d38f49'
+            a(class = "nav_option", href='mainAdmin') Admin
         li 
          a(class = "nav_option", href='manageAccounts') Manage Accounts
         li  

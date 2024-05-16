@@ -440,7 +440,7 @@ button:hover, input[type="submit"]:hover {
 
 
 
-
+/* Mobile View prerequisite */
 
 .createRequestBtn {
   display: none;
@@ -484,12 +484,14 @@ button:hover, input[type="submit"]:hover {
 
   .nav_option {
     font-size: 30px; 
+
   }
 
   .nav_container {
-    padding-left: 30px; 
-    padding-right: 30px; 
+    padding-left: 10px; 
+    padding-right: 10px; 
   }
+
 
   .main_content {
     flex-direction: column-reverse; 
@@ -592,5 +594,26 @@ button:hover, input[type="submit"]:hover {
     width: 30%;
     text-align: center;
     font-size: 30px;
+  }
+
+  .account_info {
+    padding: 50px; /* Increase padding for larger spacing */
+    max-width: 80%; /* Adjust width for better readability */
+  }
+
+  .account_page h1 {
+    font-size: 80px; /* Increase header font size */
+  }
+
+  .info_row {
+    margin-bottom: 50px; /* Increase margin between rows */
+  }
+
+  .account_page p {
+    font-size: 40px; /* Increase paragraph font size */
+  }
+
+  .account_page a {
+    font-size: 40px; /* Increase link font size */
   }
   }

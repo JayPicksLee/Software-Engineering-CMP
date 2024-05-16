@@ -21,7 +21,7 @@ router.get(
       if(!req.session.userID){
         return res.status(401).send({msg: "Not authenticated"});
       }else{
-        res.render("main", {title: 'Main page'})
+        res.render("main", {title: 'Main page', userID: req.session.userID })
       }
       
     });

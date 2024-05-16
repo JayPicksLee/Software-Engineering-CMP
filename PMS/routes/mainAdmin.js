@@ -17,7 +17,7 @@ router.get
     return res.status(401).send({msg: "Not authenticated"});
 
   }else{
-    res.render("mainAdmin", {userRequests: request, carparks: carpark });
+    res.render("mainAdmin", {userRequests: request, carparks: carpark, userID: req.session.userID });
   }
 
 
