@@ -20,10 +20,9 @@ block content
      div(class ="sideRequest")
       h3 Send parking request?
       
-      form(action='/main/createRequest', method= 'POST')
+      form(id="bookingForm")
         label(for="departmentsSelect") Select department
         select(name="departmentsSelect", id="departmentsSelect")
-          optgroup() 
             option(value="SCISch") School of Science (SCI - BIO, ENG, COMP, MATH, ENV, CHEM, PHA)
             option(value="PSYSch") School of Psychology
             option(value="HISSch") School of History
@@ -50,7 +49,6 @@ block content
 
         label(for="buildingsSelect") Select building
         select(name="buildingsSelect", id="buildingsSelect") 
-         optgroup()
           option(value="ZICER") ZICER Building
           option(value="TPSC") Thomas Paine Study Centre (TPSC)
           option(value="PARK") The Park Building (PARK)
@@ -73,15 +71,33 @@ block content
           option(value="AHB") Arts and Humanities Building (AHB)
 
         label(for="arrivalSelect") Select arrival date and time
-        input(type="datetime-local", value="Arrival date", id="arrivalSelect", name="arrivalSelect") 
+        input(type="datetime-local", id="arrivalSelect", name="arrivalSelect") 
 
         label(for="departureSelect") Select departure date and time
-        input(type="datetime-local", value="Departure date", id = "departureSelect", name="departureSelect") 
+        input(type="datetime-local", id = "departureSelect", name="departureSelect") 
         br
-        input(type="submit", name="Submit Request", value = "Submit request")
+        button(type="button", onclick="showBookingConfirmDialog()")Submit Request
 
      div(class = "sideMap")
       iframe(id = "map", src="https://www.google.com/maps/d/u/0/embed?mid=19Y2uYDjzPjg_DmreQQnEMcAjHySUdUI&ehbc=2E312F&noprof=1")
   form(action='/main/logout', METHOD = 'POST', id = "logout_button")
     input(type="submit", name="logout", value = "Logout", id = "logout_input")
+
+dialog(id="bookingConfirmDialog")
+    h2 Confirm Booking
+    p Department: #[span(id="confirmDepartment")]
+    p Building: #[span(id="confirmBuilding")]
+    p Arrival: #[span(id="confirmArrival")]
+    p Departure: #[span(id="confirmDeparture")]
+    p Parking Charge: #[span(id="confirmCharge")]
+    strong Are you sure you want to submit this booking request?
+    form(action='/main/createRequest', method='POST')
+      input(type="hidden", name="departmentsSelect", id="modalDepartmentsSelect")
+      input(type="hidden", name="buildingsSelect", id="modalBuildingsSelect")
+      input(type="hidden", name="arrivalSelect", id="modalArrivalSelect")
+      input(type="hidden", name="departureSelect", id="modalDepartureSelect")
+      button(type="submit") Confirm Booking
+      button(type="button", onclick="closeBookingConfirmDialog()") Cancel
+
+  script(src="/javascripts/bookingConfirm.js")
   script(src="/javascripts/mainMobile.js")
