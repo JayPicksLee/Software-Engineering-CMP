@@ -23,12 +23,16 @@ router.get(
         
         return res.redirect("/");
       }else{
-        
+        const adminId = '66424281484b7968a5d38f49'; 
+
         let messages = await messageModel.getMessages(req.session.userID);
+        let adminMessages = await messageModel.getMessages('66424281484b7968a5d38f49');    
+        
         let chat = await messageModel.createChat(req.session.userID, messages);
 
+
         console.log("CURRENT MESSAGES: " + chat.messages)
-        res.render("help", {title: 'Help page', messages: chat.messages});
+        res.render("help", {title: 'Help page', messages: chat.messages, });
       }
     });
   console.log(req.session.userID);

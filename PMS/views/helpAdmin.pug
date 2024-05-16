@@ -1,0 +1,33 @@
+extends layout 
+
+block content 
+  nav(class="nav")
+    div(class="nav_container")
+      div(class= "nav_logo")
+        img(src="/images/UEALogo.png", alt="", id="logo")
+      ul(class="nav_list")
+        li 
+         a(class = "nav_option", href='main') Home
+        li 
+         a(class = "nav_option", href='bookings') Bookings
+        li 
+         a(class = "nav_option", href='account') Account
+        li  
+         a(class = "nav_option", href='help') Help
+  main
+    h1.center if you need any help please contact us at +44 2345678910 or helpline@email.com
+    div
+      div
+        each message in messages
+         ul
+          if message.userID  === true;
+           li(class="userText") #{message.dateCreated} #{message.textContent}
+          else if message.userID === '66424281484b7968a5d38f49'
+           li(class="adminText") #{message.dateCreated} #{message.textContent}
+
+        form(action="/help/sendMessage", method="POST")
+         input(type="text", name = "message_content", id = "message_content") 
+         button(type="submit" ) Submit message
+
+    form(action='/main/logout', METHOD = 'POST', id = "logout_button")
+      input(type="submit", name="logout", value = "Logout", id = "logout_input")
