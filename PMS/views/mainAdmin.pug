@@ -14,7 +14,7 @@ block content
         li  
          a(class = "nav_option", href='account') Account
         li  
-         a(class = "nav_option", href='helpAdmin') Help users
+         a(class = "nav_option", href='helpAdmin') Help Users
           
 
   main
@@ -24,28 +24,32 @@ block content
       ul 
        each request in userRequests
         div(class = "manage_request_item")
+          li(class = "list_item")
+          
+            dialog(id = `request-dialog-${request._id}`, class= "request-dialogs")
 
-            li(class = "list_item") Request made: #{request.dateCreated} UserID: #{request.userID} 
-              button(onclick="showRequestDialog(this.id)", class = "show-request-dialog", id = `${request._id}`) Show more info
+              h1 Information
+              ul
+              li Request made: #{request.dateCreated} 
+              li UserID: #{request.userID}  
+              li Destination: #{request.destination} 
+              li Department: #{request.department} 
+              li Arrival date: #{request.arriveDate} 
+              li Departure date: #{request.departDate}
+              br
 
-              dialog(id = `request-dialog-${request._id}`, class= "request-dialogs")
+              form(action='/mainAdmin/approveRequest', method='POST', class = "approve_reject", id = "approve")
+                input(type="hidden", name ="id", value = request._id)
+                button(type = "submit") Approve
 
-                h1 Information
-                li Request made: #{request.dateCreated} UserID: #{request.userID}  Destination: #{request.destination} Department: #{request.department} Arrival date: #{request.arriveDate} Departure date: #{request.departDate}
+                label(for="location") Assign carpark
+                select(name="location", id="location") 
+                  each carpark in carparks
+                    option(id = `${carpark.id}`, class = "location_options", value = `${carpark.id}`) #{carpark.name}
 
-                form(action='/mainAdmin/approveRequest', method='POST', class = "approve_reject", id = "approve")
-
-                  input(type="hidden", name ="id", value = request._id)
-                  button(type = "submit") Approve
-
-                  label(for="location") Assign carpark
-                  select(name="location", id="location") 
-                    each carpark in carparks
-                      option(id = `${carpark.id}`, class = "location_options", value = `${carpark.id}`) #{carpark.name}
-
-                form(action='/mainAdmin/rejectRequest', method='POST', class = "approve_reject", id = "reject")
-                  input(type="hidden", name ="id", value = request._id)
-                  button(type = "submit") Reject
+              form(action='/mainAdmin/rejectRequest', method='POST', class = "approve_reject", id = "reject")
+                input(type="hidden", name ="id", value = request._id)
+                button(type = "submit") Reject
        else
         li NO REQUESTS
 
@@ -72,19 +76,28 @@ block content
 
           li 
             img(id = "parking_lot_img", src='/images/UEACarPark.jpg' alt='Parking Lot Image') 
-            |  Name: #{carpark._id} #{carpark.name}  Capacity: #{carpark.max_capacity} Available: #{carpark.available} Occupied: #{carpark.occupied} Reserved: #{carpark.reserved}
-            div(car_park_buttons)
+            br
+            br
+            br
+            br
+            p ID: #{carpark._id} 
+            p Name: #{carpark.name}  
+            p Capacity: #{carpark.max_capacity} 
+            p Available: #{carpark.available} 
+            p Occupied: #{carpark.occupied} 
+            p Reserved: #{carpark.reserved}
+            div(class = "car_park_buttons")
               form(action='/mainAdmin/deleteLot', method='POST', class = "park_buttons")
-              input(type="hidden", name ="id", value = carpark._id)
-              button(type = "submit") Delete lot
+                input(type="hidden", name ="id", value = carpark._id)
+                button(type = "submit") Delete lot
 
-                form(action='/mainAdmin/reserveSpace', method='POST', class = "park_buttons")
-                  input(type="hidden", name ="id", value = carpark._id)
-                  button(type = "submit") Reserve Space
+              form(action='/mainAdmin/reserveSpace', method='POST', class = "park_buttons")
+                input(type="hidden", name ="id", value = carpark._id)
+                button(type = "submit") Reserve Space
 
-                form(action='/mainAdmin/blockSpace', method='POST', class = "park_buttons")
-                  input(type="hidden", name ="id", value = carpark._id)
-                  button(type = "submit") Block space
+              form(action='/mainAdmin/blockSpace', method='POST', class = "park_buttons")
+                input(type="hidden", name ="id", value = carpark._id)
+                button(type = "submit") Block space
       
 
          
