@@ -3,26 +3,25 @@ extends layout
 block content
   nav(class="nav")
     div(class="nav_container")
-      div(class= "nav_logo")
+      div(class="nav_logo")
         img(src="/images/UEALogo.png", alt="", id="logo")
 
       ul(class="nav_list")
         li 
-         a(class = "nav_option", href='main') Home
+          a(class="nav_option", href='main') Home
         li 
-         a(class = "nav_option", href='bookings') Bookings
+          a(class="nav_option", href='bookings') Bookings
         li 
-         a(class = "nav_option", href='account') Account
+          a(class="nav_option", href='account') Account
         li  
-         a(class = "nav_option", href='help') Help
+          a(class="nav_option", href='help') Help
   main
-    section(class = "main_content")
-     div(class ="sideRequest")
-      h3 Send parking request?
-      
-      form(id="bookingForm")
-        label(for="departmentsSelect") Select department
-        select(name="departmentsSelect", id="departmentsSelect")
+    section(class="main_content")
+      div(class="sideRequest")
+        h3 Send parking request?
+        form(id="bookingForm")
+          label(for="departmentsSelect") Select department
+          select(name="departmentsSelect", id="departmentsSelect")
             option(value="SCISch") School of Science (SCI - BIO, ENG, COMP, MATH, ENV, CHEM, PHA)
             option(value="PSYSch") School of Psychology
             option(value="HISSch") School of History
@@ -47,60 +46,57 @@ block content
             option(value="BritCentLit") British Centre for Literary Translation
             option(value="AMA") Art, Media and American Studies
 
-        label(for="buildingsSelect") Select building
-        select(name="buildingsSelect", id="buildingsSelect") 
-          option(value="ZICER") ZICER Building
-          option(value="TPSC") Thomas Paine Study Centre (TPSC)
-          option(value="PARK") The Park Building (PARK)
-          option(value="MEADOW") The Meadow Building (MEADOW)
-          option(value="TEC") The Enterprise Centre (TEC)
-          option(value="QB") Queen's Building (QB)
-          option(value="NEWSCI") New Science Building (NEWSCI)
-          option(value="MED") Medical Building (MED)
-          option(value="MMB") Media and Music Building (MMB)
-          option(value="LSB") Lawrence Stenhouse Building (LSB)
-          option(value="JSC") Juliawn Study Centre (JSC)
-          option(value="HLB") Hubert Lamb Building (HLB)
-          option(value="EFRY") Elizabeth Fry Building (EFRY)
-          option(value="ECB") Edith Cavell Building (ECB)
-          option(value="EH") Earlham Hall (EH)
-          option(value="CENT") Centrum (CENT)
-          option(value="NMRB") Bob Champion Research and Education Building (NMRB)
-          option(value="BIOENE") Biomass Energy Centre (BIOENE)
-          option(value="BMRC") Bio-Medical Research Centre (BMRC)
-          option(value="AHB") Arts and Humanities Building (AHB)
+          label(for="buildingsSelect") Select building
+          select(name="buildingsSelect", id="buildingsSelect") 
+            option(value="ZICER") ZICER Building
+            option(value="TPSC") Thomas Paine Study Centre (TPSC)
+            option(value="PARK") The Park Building (PARK)
+            option(value="MEADOW") The Meadow Building (MEADOW)
+            option(value="TEC") The Enterprise Centre (TEC)
+            option(value="QB") Queen's Building (QB)
+            option(value="NEWSCI") New Science Building (NEWSCI)
+            option(value="MED") Medical Building (MED)
+            option(value="MMB") Media and Music Building (MMB)
+            option(value="LSB") Lawrence Stenhouse Building (LSB)
+            option(value="JSC") Julian Study Centre (JSC)
+            option(value="HLB") Hubert Lamb Building (HLB)
+            option(value="EFRY") Elizabeth Fry Building (EFRY)
+            option(value="ECB") Edith Cavell Building (ECB)
+            option(value="EH") Earlham Hall (EH)
+            option(value="CENT") Centrum (CENT)
+            option(value="NMRB") Bob Champion Research and Education Building (NMRB)
+            option(value="BIOENE") Biomass Energy Centre (BIOENE)
+            option(value="BMRC") Bio-Medical Research Centre (BMRC)
+            option(value="AHB") Arts and Humanities Building (AHB)
 
-        label(for="arrivalSelect") Select arrival date and time
-        input(type="datetime-local", id="arrivalSelect", name="arrivalSelect") 
+          label(for="arrivalSelect") Select arrival date and time
+          input(type="datetime-local", id="arrivalSelect", name="arrivalSelect") 
 
-        label(for="departureSelect") Select departure date and time
-        input(type="datetime-local", id = "departureSelect", name="departureSelect") 
-        br
-        button(type="button", onclick="showBookingConfirmDialog()") Submit Request
-      div(class = "sideMap")
-       iframe(id = "map", src="https://www.google.com/maps/d/u/0/embed?mid=19Y2uYDjzPjg_DmreQQnEMcAjHySUdUI&ehbc=2E312F&noprof=1")
+          label(for="departureSelect") Select departure date and time
+          input(type="datetime-local", id="departureSelect", name="departureSelect")
+          br
+          button(type="button", onclick="showBookingConfirmDialog()") Submit request
 
-      dialog(id="bookingConfirmDialog")
-        h2 Confirm Booking
-        p Department: #[span(id="confirmDepartment")]
-        p Building: #[span(id="confirmBuilding")]
-        p Arrival: #[span(id="confirmArrival")]
-        p Departure: #[span(id="confirmDeparture")]
-        p Parking Charge: #[span(id="confirmCharge")]
-        strong Are you sure you want to submit this booking request?
-        form(action='/main/createRequest', method='POST')
-          input(type="hidden", name="departmentsSelect", id="modalDepartmentsSelect")
-          input(type="hidden", name="buildingsSelect", id="modalBuildingsSelect")
-          input(type="hidden", name="arrivalSelect", id="modalArrivalSelect")
-          input(type="hidden", name="departureSelect", id="modalDepartureSelect")
-          button(type="submit") Confirm Booking
-          button(type="button", onclick="closeBookingConfirmDialog()") Cancel
+      div(class="sideMap")
+        iframe(id="map", src="https://www.google.com/maps/d/u/0/embed?mid=19Y2uYDjzPjg_DmreQQnEMcAjHySUdUI&ehbc=2E312F&noprof=1")
+    form(action='/main/logout', method='POST', id="logout_button")
+      input(type="submit", name="logout", value="Logout", id="logout_input")
 
-      form(action='/main/logout', METHOD = 'POST', id = "logout_button")
-       input(type="submit", name="logout", value = "Logout", id = "logout_input")
-       
-      script(src="/javascripts/bookingConfirm.js")
-      script(src="/javascripts/mainMobile.js")
+  dialog(id="bookingConfirmDialog")
+    h2 Confirm Booking
+    p Department: #[span(id="confirmDepartment")]
+    p Building: #[span(id="confirmBuilding")]
+    p Arrival: #[span(id="confirmArrival")]
+    p Departure: #[span(id="confirmDeparture")]
+    p Parking Charge: #[span(id="confirmCharge")]
+    strong Are you sure you want to submit this booking request?
+    form(action='/main/createRequest', method='POST')
+      input(type="hidden", name="departmentsSelect", id="modalDepartmentsSelect")
+      input(type="hidden", name="buildingsSelect", id="modalBuildingsSelect")
+      input(type="hidden", name="arrivalSelect", id="modalArrivalSelect")
+      input(type="hidden", name="departureSelect", id="modalDepartureSelect")
+      button(type="submit") Confirm Booking
+      button(type="button", onclick="closeBookingConfirmDialog()") Cancel
 
-
-
+  script(src="/javascripts/bookingConfirm.js")
+  script(src="/javascripts/mainMobile.js")
