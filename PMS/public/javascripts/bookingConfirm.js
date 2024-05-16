@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const bookingDialog = document.getElementById('bookingConfirmDialog');
     const bookingForm = document.getElementById('bookingForm');
+    
     const modalDepartmentsSelect = document.getElementById('modalDepartmentsSelect');
     const modalBuildingsSelect = document.getElementById('modalBuildingsSelect');
     const modalArrivalSelect = document.getElementById('modalArrivalSelect');

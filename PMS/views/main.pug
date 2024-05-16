@@ -77,27 +77,30 @@ block content
         input(type="datetime-local", id = "departureSelect", name="departureSelect") 
         br
         button(type="button", onclick="showBookingConfirmDialog()") Submit Request
+      div(class = "sideMap")
+       iframe(id = "map", src="https://www.google.com/maps/d/u/0/embed?mid=19Y2uYDjzPjg_DmreQQnEMcAjHySUdUI&ehbc=2E312F&noprof=1")
 
-     div(class = "sideMap")
-      iframe(id = "map", src="https://www.google.com/maps/d/u/0/embed?mid=19Y2uYDjzPjg_DmreQQnEMcAjHySUdUI&ehbc=2E312F&noprof=1")
+      dialog(id="bookingConfirmDialog")
+        h2 Confirm Booking
+        p Department: #[span(id="confirmDepartment")]
+        p Building: #[span(id="confirmBuilding")]
+        p Arrival: #[span(id="confirmArrival")]
+        p Departure: #[span(id="confirmDeparture")]
+        p Parking Charge: #[span(id="confirmCharge")]
+        strong Are you sure you want to submit this booking request?
+        form(action='/main/createRequest', method='POST')
+          input(type="hidden", name="departmentsSelect", id="modalDepartmentsSelect")
+          input(type="hidden", name="buildingsSelect", id="modalBuildingsSelect")
+          input(type="hidden", name="arrivalSelect", id="modalArrivalSelect")
+          input(type="hidden", name="departureSelect", id="modalDepartureSelect")
+          button(type="submit") Confirm Booking
+          button(type="button", onclick="closeBookingConfirmDialog()") Cancel
 
-     dialog(id="bookingConfirmDialog")
-      h2 Confirm Booking
-      p Department: #[span(id="confirmDepartment")]
-      p Building: #[span(id="confirmBuilding")]
-      p Arrival: #[span(id="confirmArrival")]
-      p Departure: #[span(id="confirmDeparture")]
-      p Parking Charge: #[span(id="confirmCharge")]
-      strong Are you sure you want to submit this booking request?
+      form(action='/main/logout', METHOD = 'POST', id = "logout_button")
+       input(type="submit", name="logout", value = "Logout", id = "logout_input")
+       
+      script(src="/javascripts/bookingConfirm.js")
+      script(src="/javascripts/mainMobile.js")
 
-     form(action='/main/createRequest', method='POST')
-      input(type="hidden", name="departmentsSelect", id="modalDepartmentsSelect")
-      input(type="hidden", name="buildingsSelect", id="modalBuildingsSelect")
-      input(type="hidden", name="arrivalSelect", id="modalArrivalSelect")
-      input(type="hidden", name="departureSelect", id="modalDepartureSelect")
-      button(type="submit") Confirm Booking
-      button(type="button", onclick="closeBookingConfirmDialog()") Cancel
-     form(action='/main/logout', METHOD = 'POST', id = "logout_button")
-      input(type="submit", name="logout", value = "Logout", id = "logout_input")
-    script(src="/javascripts/bookingConfirm.js")
-    script(src="/javascripts/mainMobile.js")
+
+
