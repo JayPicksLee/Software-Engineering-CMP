@@ -40,11 +40,11 @@ exports.getCarparkName=async (carparkId)=>{
 
 
 exports.getCarpark=async (carparkId)=>{
-    let all = await Carpark.find({carparkId});
+    let all = await Carpark.findById(carparkId);
     return all;
 }
 
-exports.CalculateOccupyAndAvailable= async(carparkId)=>{
+exports.CalculateReservedAndAvailable= async(carparkId)=>{
 
     let carpark = await Carpark.findById(carparkId);
 
@@ -53,6 +53,26 @@ exports.CalculateOccupyAndAvailable= async(carparkId)=>{
 
     return carpark;
 
+}
+
+exports.MarkOccupy = async(carparkId)=>{
+
+    let carpark = await Carpark.findById(carparkId);
+
+    await Carpark.updateOne({_id: carparkId}, { $inc: {reserved: -1}});
+    await Carpark.updateOne({_id: carparkId}, { $inc: {occupied: +1}});
+
+    return carpark;
+}
+
+exports.userDeparted = async(carparkId)=>{
+
+    let carpark = await Carpark.findById(carparkId);
+
+    await Carpark.updateOne({_id: carparkId}, { $inc: {occupied: -1}});
+    await Carpark.updateOne({_id: carparkId}, { $inc: {available: +1}});
+
+    return carpark;
 }
 
 exports.deleteCarpark=async (carparkId)=>{

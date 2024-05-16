@@ -7,7 +7,7 @@ router.get('/', async(req, res, next) => {
 
      if(req.session.userID != '66424281484b7968a5d38f49' || !req.session.userID ){
 
-         return res.status(401).send({msg: "Not authenticated"});
+        return res.redirect("/");
          
      }else{
         console.log(allUsers);

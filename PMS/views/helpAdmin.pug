@@ -19,7 +19,11 @@ block content
     div
       div
         each message in messages
-         p #{message.dateCreated} #{message.textContent}
+         ul
+          if message.userID  === true;
+           li(class="userText") #{message.dateCreated} #{message.textContent}
+          else if message.userID === '66424281484b7968a5d38f49'
+           li(class="adminText") #{message.dateCreated} #{message.textContent}
 
         form(action="/help/sendMessage", method="POST")
          input(type="text", name = "message_content", id = "message_content") 

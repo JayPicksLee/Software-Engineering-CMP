@@ -20,7 +20,7 @@ router.get('/', async(req, res, next) => {
       console.log(sessionData);
 
       if(!req.session.userID){
-        return res.status(401).send({msg: "Not authenticated"});
+        return res.redirect("/");
       }else{
 
         const userID = req.session.userID;

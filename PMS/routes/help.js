@@ -1,14 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
+const messageModel = require("../model/message.js");
+
+
+//GET METHOD
 router.get(
   '/', 
   function(req, res, next) {
     console.log(req.session);
     console.log(req.session.id);
-
     req.session.visited = true;
-    req.sessionStore.get(req.session.id, (err, sessionData) =>{
+    req.sessionStore.get(req.session.id, async (err, sessionData) =>{
 
       if(err){
         console.log(err);
@@ -18,13 +21,35 @@ router.get(
 
       if(!req.session.userID){
         
-        return res.status(401).send({msg: "Not authenticated"});
+        return res.redirect("/");
       }else{
-        res.render("help", {title: 'Help page'});
+        const adminId = '66424281484b7968a5d38f49'; 
+
+        let messages = await messageModel.getMessages(req.session.userID);
+        let adminMessages = await messageModel.getMessages('66424281484b7968a5d38f49');    
+        
+        let chat = await messageModel.createChat(req.session.userID, messages);
+
+
+        console.log("CURRENT MESSAGES: " + chat.messages)
+        res.render("help", {title: 'Help page', messages: chat.messages, });
       }
     });
   console.log(req.session.userID);
 
 });
+
+//POST METHOD sendMessage:
+router.post(
+  '/sendMessage', 
+  function(req, res, next) {
+
+    const userId = req.session.userID;
+    const textContent = req.body.message_content;
+
+    messageModel.createMessage(userId, textContent);
+
+    res.redirect("/help");
+  });
 
 module.exports = router;
