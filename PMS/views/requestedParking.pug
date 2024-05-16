@@ -15,6 +15,14 @@ block content
         li  
          a(class = "nav_option", href='/help') help
   main
-    h1.center Thank you for your request, its being processed with an admin now
-    form(action='/main/logout', METHOD = 'POST', id = "logout_button")
-      input(type="submit", name="logout", value = "Logout", id = "logout_input")
+    div(class="requestPageContainer")
+      h1.center Thank you for your request, its being processed with an admin now.
+      br
+      h1.center Please click the button below to pay for your parking.
+      br
+      br
+      br
+      form(action="/payment", method="GET")
+        input(type="submit", value="Pay For Parking", id="paymentPageButton")
+      form(action='/main/logout', METHOD = 'POST', id = "logout_button")
+        input(type="submit", name="logout", value = "Logout", id = "logout_input")
