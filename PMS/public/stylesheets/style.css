@@ -330,11 +330,12 @@ button:hover, input[type="submit"]:hover {
 }
 
 .car_park_item {
-  border: 3px solid #ffffff;
+  border: 2px solid #ffffff;
   border-radius: 15px;
   padding: 10px;
   margin-bottom: 20px;
-  width:fit-content;
+  width: 400px;
+  background-color: #333;
 }
 
 .admin_img{
@@ -350,6 +351,8 @@ button:hover, input[type="submit"]:hover {
 
 .car_park_item li {
   margin-bottom: 5px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .car_park_item form {
@@ -360,6 +363,18 @@ button:hover, input[type="submit"]:hover {
   content: "";
   display: table;
   clear: both;
+}
+
+.manage_request_item {
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  padding: 16px;
+  margin-bottom: 20px;
+  background-color: #333;
+}
+
+.manage_request_item li {
+  font-weight: bold;
 }
 
 
