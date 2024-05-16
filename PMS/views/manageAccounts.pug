@@ -33,7 +33,9 @@ block content
           br
           strong Phone Number: 
           | #{user.phoneNumber}
-          button(type="button") Delete Account
+          form(action="/manageAccounts/deleteUserAccount", method="POST")
+            input(type="hidden", name="userId", value=user._id)
+            button(type="submit") Delete Account
   form(action='/main/logout', METHOD = 'POST', id = "logout_button")
     input(type="submit", name="logout", value = "Logout", id = "logout_input")
   
