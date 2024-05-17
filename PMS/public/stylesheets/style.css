@@ -170,7 +170,12 @@ iframe{
   margin-left: 4%;
 }
 
-
+#submit_button {
+  background-color: #00B7FF;
+  height: auto;
+  width: 200px;
+  font-weight: bold;
+}
 
 /* Map Page CSS */
 
