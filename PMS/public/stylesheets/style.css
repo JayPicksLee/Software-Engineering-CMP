@@ -177,6 +177,22 @@ iframe{
   font-weight: bold;
 }
 
+.payment-details {
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #2e2e2e;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.payment-details label {
+  font-size: larger;
+  font-weight: bold;
+}
+
+
 /* Map Page CSS */
 
 #parkinglot{
@@ -339,7 +355,7 @@ button:hover, input[type="submit"]:hover {
   border-radius: 15px;
   padding: 10px;
   margin-bottom: 20px;
-  width: 400px;
+  width:400px;
   background-color: #333;
 }
 
